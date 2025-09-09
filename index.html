@@ -3,336 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The DexScreener Experiment</title>
+    <title>Ani Streams - Live on Pump.fun</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #ffffff;
-            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ffeef8 0%, #fff0f5 100%);
+            min-height: 100vh;
+            color: #333;
             line-height: 1.6;
-            font-size: 16px;
         }
-
+        
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 40px 20px;
         }
-
+        
         header {
             text-align: center;
-            padding: 100px 0 80px;
+            margin-bottom: 60px;
         }
-
-        h1 {
+        
+        .logo {
             font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: #000;
-            letter-spacing: -0.02em;
+            font-weight: 600;
+            color: #e91e63;
+            margin-bottom: 8px;
         }
-
+        
         .subtitle {
             font-size: 1.1rem;
             color: #666;
-            font-weight: 400;
-            margin-bottom: 60px;
-        }
-
-        .hero-section {
-            margin-bottom: 80px;
-            padding: 0 20px;
-        }
-
-        .hero-section p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            color: #333;
-            text-align: center;
-            font-weight: 400;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .concept-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
-            margin-bottom: 100px;
-            padding: 0 20px;
-        }
-
-        .concept-card {
-            text-align: center;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 15px;
-            color: #000;
-        }
-
-        .card-description {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .how-it-works {
-            margin-bottom: 100px;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            font-size: 2rem;
             font-weight: 300;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #000;
-            letter-spacing: -0.01em;
         }
-
-        .steps {
+        
+        .phone-section {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        
+        .phone-mockup {
+            background: #f5f5f5;
+            border-radius: 35px;
+            padding: 25px;
+            width: 380px;
+            height: 680px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        
+        .phone-screen {
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        #videoContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .phone-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .live-indicator {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #ff4444;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .main-content {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(233, 30, 99, 0.1);
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #e91e63, #f06292);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 50px;
-            margin-top: 40px;
+            gap: 20px;
+            margin: 40px 0;
         }
-
-        .step {
+        
+        .feature {
             text-align: center;
+            padding: 20px;
         }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #000;
-            color: #fff;
-            font-size: 1rem;
-            font-weight: 500;
-            margin-bottom: 20px;
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
         }
-
-        .step h3 {
+        
+        .feature h3 {
+            color: #e91e63;
             font-size: 1.1rem;
-            margin-bottom: 10px;
             font-weight: 500;
-            color: #000;
+            margin-bottom: 8px;
         }
-
-        .step p {
+        
+        .feature p {
             color: #666;
             font-size: 0.95rem;
-            line-height: 1.5;
         }
-
+        
         .cta-section {
             text-align: center;
-            padding: 80px 20px;
-            margin-bottom: 80px;
+            margin: 50px 0;
         }
-
-        .cta-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            font-weight: 400;
-            color: #000;
-        }
-
-        .cta-section p {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            color: #666;
-        }
-
+        
         .cta-button {
             display: inline-block;
-            padding: 12px 30px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            border: 2px solid #000;
-        }
-
-        .cta-button:hover {
-            background: #fff;
-            color: #000;
-        }
-
-        .disclaimer {
-            background: #f8f8f8;
+            background: #e91e63;
+            color: white;
+            padding: 14px 32px;
             border-radius: 8px;
-            padding: 30px;
-            margin: 60px 20px;
-            border-left: 3px solid #000;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .disclaimer h4 {
-            margin-bottom: 10px;
+            text-decoration: none;
             font-weight: 500;
-            color: #000;
-            font-size: 1rem;
+            margin: 8px;
+            transition: background 0.2s ease;
         }
-
+        
+        .cta-button:hover {
+            background: #c2185b;
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: #e91e63;
+            border: 1px solid #e91e63;
+        }
+        
+        .cta-button.secondary:hover {
+            background: #e91e63;
+            color: white;
+        }
+        
         footer {
             text-align: center;
-            padding: 40px 20px;
-            color: #999;
-            border-top: 1px solid #eee;
             margin-top: 60px;
+            color: #888;
             font-size: 0.9rem;
         }
-
+        
         @media (max-width: 768px) {
-            h1 {
+            .container {
+                padding: 20px 16px;
+            }
+            
+            .logo {
                 font-size: 2rem;
             }
             
-            .subtitle {
-                font-size: 1rem;
+            .phone-mockup {
+                width: 320px;
+                height: 580px;
             }
             
-            .hero-section p {
-                font-size: 1.1rem;
+            .main-content {
+                padding: 24px;
             }
-            
-            .concept-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            header {
-                padding: 60px 0 40px;
-            }
-        }
-
-        /* Subtle hover effects */
-        .concept-card {
-            transition: transform 0.2s ease;
-        }
-
-        .concept-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .step {
-            transition: transform 0.2s ease;
-        }
-
-        .step:hover {
-            transform: translateY(-1px);
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>The DexScreener Experiment</h1>
-            <p class="subtitle">First project to democratize DexScreener's new wallet-connected update feature</p>
+            <h1 class="logo">Ani Streams</h1>
+            <p class="subtitle">Cute meets crypto innovation</p>
         </header>
-
-        <section class="hero-section">
-            <p>
-                A platform where anyone can choose which cryptocurrency gets promoted. 
-                We pool resources to pay for DexScreener promotion, but the community decides which token gets the spotlight. 
-                This creates a truly democratic approach to crypto promotion where the best projects rise through collective choice.
+        
+        <div class="phone-section">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div id="videoContainer">
+                        <video class="phone-video" autoplay muted loop playsinline>
+                            <source src="kill.mp4" type="video/mp4">
+                            <source src="./your-video-file.webm" type="video/webm">
+                            <!-- Fallback content -->
+                            <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #ffc1e3, #ffe4f4); display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                                <div style="font-size: 3rem; margin: 20px;">🌸 Ani 🌸</div>
+                                <div style="font-size: 1.2rem;">LIVE on Pump.fun!</div>
+                                <div style="font-size: 1rem; margin-top: 15px; opacity: 0.8;">
+                                    Streaming kawaii crypto vibes! 💖
+                                </div>
+                            </div>
+                        </video>
+                    </div>
+                    <div class="live-indicator">🔴 LIVE</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="highlight">
+                🎉 Ani is going LIVE on Pump.fun via phone stream! 🎉
+            </div>
+            
+            <p class="description">
+                Join us as Ani streams live on Pump.fun, interacting with chat in real-time while bringing 
+                kawaii energy to the crypto world - all from just a phone! This is the future of cute crypto streaming! 💖
             </p>
-        </section>
-
-        <div class="concept-grid">
-            <div class="concept-card">
-                <span class="card-icon">🗳️</span>
-                <h3 class="card-title">Democratic Selection</h3>
-                <p class="card-description">Community members vote and decide which cryptocurrency deserves promotion. No single entity controls the narrative.</p>
-            </div>
-
-            <div class="concept-card">
-                <span class="card-icon">💰</span>
-                <h3 class="card-title">Pooled Resources</h3>
-                <p class="card-description">We collectively fund DexScreener promotions, making professional-grade marketing accessible to any project.</p>
-            </div>
-
-            <div class="concept-card">
-                <span class="card-icon">🚀</span>
-                <h3 class="card-title">Promotion Power</h3>
-                <p class="card-description">Selected tokens get the full force of DexScreener promotion, creating massive visibility and trading volume.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Live Streaming</h3>
+                    <p>Real-time streaming directly on Pump.fun platform</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Streaming directly from phone</p>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">💕</div>
+                    <h3>Community Driven</h3>
+                    <p>Live interaction with the crypto community</p>
+                </div>
             </div>
         </div>
-
-        <section class="how-it-works">
-            <h2 class="section-title">How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Submit & Vote</h3>
-                    <p>Community members submit token candidates and vote on which cryptocurrency should receive promotion.</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Pool Resources</h3>
-                    <p>Participants contribute to the promotion fund, creating a substantial budget for DexScreener advertising.</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Execute Campaign</h3>
-                    <p>The winning token gets featured on DexScreener with maximum visibility, driving attention and investment.</p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Repeat Process</h3>
-                    <p>The cycle continues with new submissions, allowing different projects to benefit from community-driven promotion.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <h2>Ready to change the game?</h2>
-            <p>Join the experiment that puts promotion power directly in the hands of the crypto community.</p>
-            <a href="#" class="cta-button">Launch Experiment</a>
-        </section>
-
-        <div class="disclaimer">
-            <h4>Important Disclaimer</h4>
-            <p>This is an experimental platform for educational and community engagement purposes. Cryptocurrency investments carry significant risks. Always conduct thorough research and never invest more than you can afford to lose. This platform does not guarantee returns or endorse any specific cryptocurrency projects.</p>
+        
+        <div class="cta-section">
+            <a href="#" class="cta-button">🔴 Watch Ani LIVE</a>
+            <a href="#" class="cta-button secondary">💖 Join Pump.fun Chat</a>
         </div>
+        
+        <footer>
+            <p>Made by the Ani Streams team</p>
+        </footer>
     </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 The DexScreener Experiment</p>
-        </div>
-    </footer>
 </body>
 </html>
