@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The TV Coin</title>
-    <link rel="icon" type="image/x-icon" href="Tv.png">
+    <title>The Troll Party</title>
+    <link rel="icon" type="image/x-icon" href="troll.png">
     <style>
         * {
             margin: 0;
@@ -13,449 +13,388 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #2c2c2c;
-            background: #fefcf8;
+            color: #333;
+            background: #f5f5f5;
             min-height: 100vh;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        .header {
-            padding: 2rem 0;
-            border-bottom: 1px solid #f5f1eb;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c2c2c;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 3rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #7a6f5d;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 400;
-        }
-
-        .nav-links a:hover {
-            color: #2c2c2c;
-        }
-
-        .hero {
+        header {
             text-align: center;
-            padding: 6rem 0;
+            padding: 60px 0;
+            background: white;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: #2c2c2c;
-            letter-spacing: -0.02em;
+        h1 {
+            font-size: 3em;
+            color: #1a365d;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #7a6f5d;
-            max-width: 600px;
-            margin: 0 auto 3rem;
+        .subtitle {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .party-badge {
+            background: #e53e3e;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 600;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .video-container {
+            text-align: center;
+            margin: 40px 0;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .video-controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .video-description {
+            margin-top: 15px;
+            font-style: italic;
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .content-section {
+            background: white;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #1a365d;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            font-weight: 600;
+            border-bottom: 3px solid #e53e3e;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
             line-height: 1.7;
+        }
+
+        .highlight {
+            background: #1a365d;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .funding-section {
+            background: #2d3748;
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .funding-section h3 {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: #2c2c2c;
-            color: #fefcf8;
-            text-decoration: none;
+            background: #e53e3e;
+            color: white;
+            padding: 15px 30px;
+            border: none;
             border-radius: 6px;
-            font-weight: 500;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            margin: 15px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .cta-button:hover {
-            background: #404040;
-            transform: translateY(-1px);
+            background: #c53030;
+            transform: translateY(-2px);
         }
 
-        .section {
-            padding: 5rem 0;
+        .problems-list {
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 25px 0;
+            border-left: 4px solid #e53e3e;
         }
 
-        .section-title {
-            font-size: 2.2rem;
+        .problems-list p {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+
+        .problems-list strong {
+            color: #1a365d;
+        }
+
+        .manifesto-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 6px;
+            border-left: 4px solid #38b2ac;
+        }
+
+        .manifesto-item strong {
+            color: #1a365d;
+            font-size: 1.05em;
+        }
+
+        footer {
             text-align: center;
-            margin-bottom: 3rem;
-            color: #2c2c2c;
-            font-weight: 600;
-            letter-spacing: -0.01em;
+            padding: 40px;
+            background: #1a365d;
+            color: white;
+            border-radius: 8px;
+            margin-top: 40px;
         }
 
-        .steps-container {
+        .tagline {
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        /* Video fallback styles */
+        .video-fallback {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            background: #e2e8f0;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 4rem;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .step {
-            flex: 1;
-            max-width: 300px;
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: #2c2c2c;
-            color: #fefcf8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 0 auto 1.5rem;
-        }
-
-        .step h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2c2c2c;
-            font-weight: 600;
-        }
-
-        .step p {
-            color: #7a6f5d;
-            line-height: 1.7;
-        }
-
-        .arrow {
-            font-size: 2rem;
-            color: #d9d0c0;
-            align-self: flex-start;
-            margin-top: 30px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .card {
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .card:hover {
-            border-color: #f5f1eb;
-            background: #fbf8f2;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #2c2c2c;
-            font-weight: 600;
-        }
-
-        .card p {
-            color: #7a6f5d;
-            line-height: 1.7;
-        }
-
-        .proof-section {
-            background: #fbf8f2;
-            padding: 4rem;
-            margin: 4rem 0;
-            text-align: center;
-            border: 1px solid #f5f1eb;
-        }
-
-        .proof-amount {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #2c2c2c;
-            margin-bottom: 1rem;
-        }
-
-        .proof-section p {
-            color: #7a6f5d;
-            max-width: 600px;
             margin: 0 auto;
-            line-height: 1.7;
+            border: 2px solid #cbd5e0;
+            flex-direction: column;
         }
 
-        .news-channels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .channel {
-            padding: 2rem 1rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .channel:hover {
-            border-color: #f5f1eb;
-            background: #fbf8f2;
-        }
-
-        .channel-logo {
-            width: 50px;
-            height: 50px;
-            background: #2c2c2c;
-            color: #fefcf8;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .channel h4 {
-            color: #2c2c2c;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid #f5f1eb;
-            margin-top: 4rem;
-        }
-
-        .footer p {
-            color: #a89585;
-            font-size: 0.9rem;
-        }
-
-        .section-separator {
-            height: 1px;
-            background: #f5f1eb;
-            margin: 2rem 0;
+        .fallback-text {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 15px;
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            h1 {
+                font-size: 2.2em;
             }
             
-            .nav-links {
-                display: none;
+            .video-wrapper {
+                max-width: 100%;
             }
             
-            .steps-container {
-                flex-direction: column;
-                gap: 3rem;
-            }
-
-            .arrow {
-                transform: rotate(90deg);
-                margin: 0;
+            .content-section {
+                padding: 25px;
             }
             
-            .cards {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .content-section h2 {
+                font-size: 1.8em;
             }
             
-            .news-channels {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero {
-                padding: 4rem 0;
-            }
-
-            .section {
-                padding: 3rem 0;
-            }
-
-            .proof-section {
-                padding: 3rem 2rem;
+            .highlight, .funding-section {
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="logo">The TV Coin</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#proof">Proof</a></li>
-                    <li><a href="#partners">Partners</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <header>
+            <h1>Help Me Become Prime Minister</h1>
+            <p class="subtitle">Britain Needs Change. Britain Needs The Troll Party.</p>
+            <div class="party-badge">THE TROLL PARTY</div>
+        </header>
+
+        <div class="video-container">
+            <div class="video-wrapper">
+                <!-- Replace 'your-campaign-video.mp4' with the actual path to your MP4 file -->
+                <video controls preload="metadata" poster="video-thumbnail.jpg">
+                    <source src="loss.mp4" type="video/mp4">
+                    <source src="your-campaign-video.webm" type="video/webm">
+                    <!-- Fallback for browsers that don't support video -->
+                    <div class="video-fallback">
+                        <p>Your browser doesn't support HTML5 video.</p>
+                        <p class="fallback-text">Please <a href="your-campaign-video.mp4" download>download the video</a> to watch our campaign message.</p>
+                    </div>
+                </video>
+            </div>
+            <p class="video-description">Watch our campaign video: Why Britain needs The Troll Party</p>
         </div>
-    </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="container">
-                <h1>The TV Coin</h1>
-                <p>Most older people have a television, so why not target them with adverts paid for with pumpfun fees to promote our coin?</p>
-                <a href="#how-it-works" class="cta-button">Learn More</a>
+        <div class="content-section">
+            <h2>Britain is in Crisis</h2>
+            <div class="problems-list">
+                <p><strong>Cost of Living Crisis:</strong> Families can't afford basic necessities while politicians get pay rises.</p>
+                <p><strong>NHS in Collapse:</strong> Record waiting times, staff shortages, and underfunding plague our healthcare system.</p>
+                <p><strong>Housing Emergency:</strong> Young people can't afford homes while foreign investors buy up property.</p>
+                <p><strong>Transport Chaos:</strong> Strikes, delays, and extortionate prices make getting around a nightmare.</p>
+                <p><strong>Energy Bills:</strong> People choosing between heating and eating while energy companies post record profits.</p>
+                <p><strong>Economic Stagnation:</strong> Years of mismanagement have left Britain falling behind our European neighbors.</p>
             </div>
-        </section>
-
-        <div class="section-separator"></div>
-
-        <section class="section" id="how-it-works">
-            <div class="container">
-                <h2 class="section-title">How It Works</h2>
-                <div class="steps-container">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Fee Collection</h3>
-                        <p>We collect strategic fees from memecoin projects looking to gain mainstream exposure. These funds are pooled to create impactful advertising campaigns that reach beyond the crypto community.</p>
-                    </div>
-                    
-                    <div class="arrow">→</div>
-                    
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Media Placement</h3>
-                        <p>Using collected fees, we secure premium advertising slots on major news channels and media outlets. Our approach brings memecoins to mainstream audiences who have never heard of them before.</p>
-                    </div>
-                    
-                    <div class="arrow">→</div>
-                    
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Amplified Reach</h3>
-                        <p>By leveraging traditional media's massive reach, we help memecoins break through the noise and achieve viral status. Our campaigns create buzz that extends far beyond typical crypto circles.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="proof">
-            <div class="container">
-                <div class="proof-section">
-                    <h2 class="section-title">Proof of Commitment</h2>
-                    <div class="proof-amount">$500</div>
-                    <p>As a token of good faith and proof that we're serious about this venture, we've already invested <strong>$500</strong> of our own funds into initial advertising campaigns. This demonstrates our commitment to the success of memecoin projects and our confidence in our advertising strategy.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="partners">
-            <div class="container">
-                <h2 class="section-title">Media Partners</h2>
-                <div class="news-channels">
-                    <div class="channel">
-                        <div class="channel-logo">CNN</div>
-                        <h4>CNN Business</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">FOX</div>
-                        <h4>Fox Business</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">NBC</div>
-                        <h4>CNBC</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">CBS</div>
-                        <h4>CBS MarketWatch</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">BBC</div>
-                        <h4>BBC Business</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">SKY</div>
-                        <h4>Sky News</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">BLM</div>
-                        <h4>Bloomberg TV</h4>
-                    </div>
-                    <div class="channel">
-                        <div class="channel-logo">RTR</div>
-                        <h4>Reuters TV</h4>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 The TV Coin. Revolutionizing memecoin marketing through traditional media.</p>
+            <p>The traditional parties have failed us. They're out of touch, corrupt, and more interested in party politics than fixing real problems. <strong>It's time for something completely different.</strong></p>
         </div>
-    </footer>
+
+        <div class="highlight">
+            <h3>The Solution: The Troll Party</h3>
+            <p>We're not your typical political party. We're here to shake up Westminster, challenge the establishment, and actually get things done for ordinary people. No more empty promises, no more spin - just real action.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Revolutionary Funding Strategy</h2>
+            <p>Traditional political parties rely on wealthy donors and corporate interests. That's why they serve the elite, not the people. <strong>We're different.</strong></p>
+            
+            <p>The Troll Party is pioneering a new funding model using innovative financial technologies. We're leveraging PumpFun platform fees and decentralized finance mechanisms to generate sustainable funding for our political campaign.</p>
+
+            <div class="funding-section">
+                <h3>Democratizing Political Funding</h3>
+                <p>By utilizing modern fintech solutions, we're creating a funding stream that's:</p>
+                <p><strong>Independent from corporate influence</strong><br>
+                <strong>Transparent and trackable</strong><br>
+                <strong>Sustainable for long-term change</strong><br>
+                <strong>Powered by the people, for the people</strong></p>
+            </div>
+
+            <p>This isn't just about winning an election - it's about proving that politics can work differently. We're showing that innovative funding can break the stranglehold of traditional political financing and create genuine independence.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Manifesto</h2>
+            <div class="manifesto-item">
+                <p><strong>Housing First:</strong> Massive social housing program and restrictions on foreign property investment.</p>
+            </div>
+            <div class="manifesto-item">
+                <p><strong>NHS Revival:</strong> Proper funding, staff retention, and modern equipment.</p>
+            </div>
+            <div class="manifesto-item">
+                <p><strong>Energy Independence:</strong> Nationalize utilities and invest in renewable energy.</p>
+            </div>
+            <div class="manifesto-item">
+                <p><strong>Education Revolution:</strong> Free university education and proper funding for schools.</p>
+            </div>
+            <div class="manifesto-item">
+                <p><strong>Green Economy:</strong> Create millions of green jobs while tackling climate change.</p>
+            </div>
+            <div class="manifesto-item">
+                <p><strong>Democratic Reform:</strong> Proportional representation and an end to the House of Lords.</p>
+            </div>
+        </div>
+
+        <div class="highlight">
+            <h3>Join the Movement</h3>
+            <p>This is bigger than just one election. We're building a movement to transform British politics permanently. Every contribution, every share, every vote gets us closer to real change.</p>
+            <button class="cta-button" onclick="alert('Coming Soon: Contribution Portal')">Support Our Campaign</button>
+            <button class="cta-button" onclick="alert('Coming Soon: Volunteer Registration')">Volunteer</button>
+        </div>
+
+        <footer>
+            <p><strong>The Troll Party - Disrupting Politics for Good</strong></p>
+            <p>Authorized by The Troll Party Campaign Committee</p>
+            <p class="tagline">"When the system is broken, sometimes you need a troll to fix it."</p>
+        </footer>
+    </div>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Enhanced interactivity
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
             });
         });
 
-        // Animate steps on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.step').forEach(step => {
-            step.style.opacity = '0';
-            step.style.transform = 'translateY(20px)';
-            step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(step);
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.transform = 'translateY(-5px)';
+                header.style.transition = 'all 0.3s ease';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
         });
+
+        // Video loading feedback
+        const video = document.querySelector('video');
+        if (video) {
+            video.addEventListener('loadstart', function() {
+                console.log('Video loading started');
+            });
+            
+            video.addEventListener('canplay', function() {
+                console.log('Video can start playing');
+            });
+            
+            video.addEventListener('error', function(e) {
+                console.log('Video error:', e);
+                // Could show fallback content here
+            });
+        }
     </script>
 </body>
 </html>
