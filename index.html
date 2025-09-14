@@ -3,76 +3,1324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Chat</title>
+    <title>GoCoinMe - #1 Crypto Fundraising Platform</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
+        html, body {
+            height: 100%;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #faf8f5;
-            color: #333333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.5;
+            color: #2c2c2c;
+            background: #f8fffe;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Page visibility management */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-box {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
             text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(30px) scale(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.show .popup-box {
+            transform: translateY(0) scale(1);
+        }
+
+        .popup-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 16px;
+        }
+
+        .popup-subtitle {
+            font-size: 16px;
+            color: #00b964;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .popup-description {
+            font-size: 16px;
+            color: #666;
             line-height: 1.6;
+            margin-bottom: 24px;
         }
-        
-        .container {
-            max-width: 600px;
-            padding: 2rem;
+
+        .popup-highlight {
+            background: #f0f9ff;
+            border: 2px solid #00b964;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 2px;
+
+        .popup-highlight-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00b964;
+            margin-bottom: 12px;
         }
-        
-        .instructions {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+
+        .popup-highlight-text {
+            font-size: 14px;
+            color: #2c2c2c;
+            line-height: 1.5;
+        }
+
+        .popup-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .popup-btn-primary {
+            background: #00b964;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            text-decoration: none;
+        }
+
+        .popup-btn-primary:hover {
+            background: #009654;
+        }
+
+        .popup-btn-secondary {
+            background: transparent;
+            color: #666;
+            padding: 12px 24px;
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .popup-btn-secondary:hover {
+            border-color: #00b964;
+            color: #00b964;
+        }
+
+        header {
+            background: white;
+            padding: 16px 0;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00b964;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .search-icon {
+            color: #8a8a8a;
+            font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-weight: 500;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a:hover {
+            color: #00b964;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .sign-in {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .start-button {
+            background: #00b964;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .start-button:hover {
+            background: #009654;
+        }
+
+        .hero-section {
+            min-height: calc(100vh - 73px);
+            background: #f8fffe;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .platform-badge {
+            background: #e8f5f0;
+            color: #00b964;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 40px;
+            line-height: 1.1;
+        }
+
+        .hero-button {
+            background: #00b964;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s ease;
+            cursor: pointer;
+        }
+
+        .hero-button:hover {
+            background: #009654;
+        }
+
+        .stats-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .stats-text {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c2c2c;
+            line-height: 1.4;
+        }
+
+        .description-text {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-top: 16px;
+        }
+
+        .bottom-stats {
+            background: #fff8e7;
+            padding: 24px 0;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .bottom-stats-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .stat-icon {
+            width: 24px;
+            height: 24px;
+            color: #00b964;
+        }
+
+        /* Wallet Setup Page Styles */
+        .main-content {
+            padding: 60px 0;
+            min-height: calc(100vh - 73px);
+            display: flex;
+            align-items: center;
+        }
+
+        .wallet-setup-container, .coin-creation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .coin-creation-container {
+            max-width: 900px;
+        }
+
+        .setup-header {
+            background: linear-gradient(135deg, #00b964, #009654);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .setup-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .setup-subtitle {
+            font-size: 18px;
             opacity: 0.9;
+            line-height: 1.4;
         }
-        
-        .example {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.4rem;
-            margin: 1rem 0;
-            color: #666666;
+
+        .setup-content {
+            padding: 40px;
         }
-        
-        .tagline {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.3rem;
-            opacity: 0.8;
-            margin-top: 1.5rem;
-            font-style: italic;
+
+        .security-notice {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .notice-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .notice-text {
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        .wallet-section {
+            background: #f8fffe;
+            border: 2px solid #00b964;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .wallet-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #00b964;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .wallet-info {
+            margin-bottom: 20px;
+        }
+
+        .wallet-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .wallet-value {
+            background: white;
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            color: #2c2c2c;
+            word-break: break-all;
+            position: relative;
+        }
+
+        .copy-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #00b964;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .copy-btn:hover {
+            background: #009654;
+        }
+
+        .create-coin-btn {
+            background: #6c757d;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            opacity: 0.6;
+            width: 100%;
+            margin-bottom: 32px;
+        }
+
+        .create-coin-btn.enabled {
+            background: #00b964;
+            cursor: pointer;
+            opacity: 1;
+        }
+
+        .create-coin-btn.enabled:hover {
+            background: #009654;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 185, 100, 0.3);
+        }
+
+        .steps-section {
+            border-top: 1px solid #e8e8e8;
+            padding-top: 32px;
+            margin-top: 32px;
+        }
+
+        .steps-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .steps-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 16px;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #00b964;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 12px;
+        }
+
+        .step-text {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .generate-animation {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .spinner {
+            border: 3px solid #e8e8e8;
+            border-top: 3px solid #00b964;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .back-btn {
+            background: transparent;
+            color: #00b964;
+            border: 2px solid #00b964;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #00b964;
+            color: white;
+        }
+
+        /* Coin Creation Form Styles */
+        .form-section {
+            margin-top: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #2c2c2c;
+            transition: border-color 0.2s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #00b964;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.5;
+        }
+
+        .form-hint {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .upload-area {
+            border: 2px dashed #e8e8e8;
+            border-radius: 12px;
+            padding: 40px 20px;
+            text-align: center;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: #00b964;
+            background: #f8fffe;
+        }
+
+        .upload-area.dragover {
+            border-color: #00b964;
+            background: #f0f9ff;
+        }
+
+        .upload-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .upload-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-bottom: 8px;
+        }
+
+        .upload-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .upload-btn {
+            background: #00b964;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .upload-btn:hover {
+            background: #009654;
+        }
+
+        .social-section {
+            margin: 32px 0;
+            padding: 24px;
+            background: #f8fffe;
+            border-radius: 12px;
+            border: 1px solid #e8f5f0;
+        }
+
+        .social-links-btn {
+            background: transparent;
+            color: #00b964;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.2s ease;
+        }
+
+        .social-links-btn:hover {
+            color: #009654;
+        }
+
+        .social-links-content {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e8f5f0;
+        }
+
+        .creation-info {
+            background: #fff8e7;
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .info-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #856404;
+            margin-bottom: 16px;
+        }
+
+        .info-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .info-step {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #ffc107;
+            color: #856404;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .info-text {
+            font-size: 16px;
+            color: #856404;
+            line-height: 1.4;
+        }
+
+        .create-final-btn {
+            background: linear-gradient(135deg, #00b964, #009654);
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 32px;
+            box-shadow: 0 4px 16px rgba(0, 185, 100, 0.3);
+        }
+
+        .create-final-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 185, 100, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .bottom-stats-container {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .popup-box {
+                padding: 24px;
+                margin: 20px;
+            }
+
+            .popup-buttons {
+                flex-direction: column;
+            }
+
+            .setup-content {
+                padding: 24px;
+            }
+
+            .setup-header {
+                padding: 24px;
+            }
+
+            .setup-title {
+                font-size: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .coin-creation-container {
+                margin: 20px;
+            }
+
+            .upload-area {
+                padding: 24px 16px;
+            }
+
+            .upload-icon {
+                font-size: 36px;
+            }
+
+            .info-content {
+                gap: 16px;
+            }
+
+            .info-item {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .info-step {
+                margin-top: 2px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Chat</h1>
-        
-        <div class="instructions">
-            To begin simply write ?coin name+ticker
-        </div>
-        
-        <div class="example">
-            for example ?Coin Launch Using Pumpfun Live Chat+CHAT
-        </div>
-        
-        <div class="tagline">
-            The first pumpfun deployer directly on live!
+    <!-- Welcome Popup -->
+    <div id="welcomePopup" class="popup-overlay">
+        <div class="popup-box">
+            <div class="popup-title">Welcome to GoCoinMe!</div>
+            <div class="popup-subtitle">The #1 Crypto Fundraising Platform</div>
+            <div class="popup-description">
+                GoCoinMe allows you to create your own cryptocurrency coins for any cause. As your coin's market cap grows, more trading fees are automatically generated and sent directly to your fundraiser!
+            </div>
+            
+            <div class="popup-highlight">
+                <div class="popup-highlight-title">User Protection Policy</div>
+                <div class="popup-highlight-text">
+                    To protect your interests, you're required to generate a new wallet on our website. This ensures 0% dev buys and fair launch for everyone!
+                </div>
+            </div>
+            
+            <div class="popup-buttons">
+                <button class="popup-btn-primary" onclick="closePopup()">Start Creating</button>
+                <button class="popup-btn-secondary" onclick="closePopup()">Learn More</button>
+            </div>
         </div>
     </div>
+
+    <!-- Homepage -->
+    <div id="homepage" class="page active">
+        <header>
+            <nav class="container">
+                <div class="nav-left">
+                </div>
+                <span class="logo" onclick="showHomePage()">gocoinme</span>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="#">About ▼</a></li>
+                    </ul>
+                    <button class="start-button" onclick="showWalletSetup()">Start a GoCoinMe</button>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="platform-badge">#1 crypto fundraising platform</div>
+                        <h1 class="hero-title">Coin Any Cause And Get<br>Fees Automatically<br>Sent There</h1>
+                        <button class="hero-button" onclick="showWalletSetup()">Start a GoCoinMe</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Wallet Setup Page -->
+    <div id="walletSetupPage" class="page">
+        <header>
+            <nav class="container">
+                <span class="logo" onclick="showHomePage()">gocoinme</span>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="#">About ▼</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="wallet-setup-container">
+                    <div class="setup-header">
+                        <h1 class="setup-title">Secure Wallet Generation</h1>
+                        <p class="setup-subtitle">We generate a secure wallet for you to ensure 0% dev buys and a fair launch for everyone</p>
+                    </div>
+
+                    <div class="setup-content">
+                        <button class="back-btn" onclick="showHomePage()">← Back to Home</button>
+                        
+                        <div class="security-notice">
+                            <div class="notice-title">
+                                🛡️ User Protection Policy
+                            </div>
+                            <div class="notice-text">
+                                To protect your interests and ensure a fair launch, we generate a secure wallet on our platform. This prevents developer manipulation and guarantees equal opportunity for all participants.
+                            </div>
+                        </div>
+
+                        <div class="wallet-section" id="walletSection" style="display: none;">
+                            <div class="wallet-title">Your Generated Solana Wallet</div>
+                            
+                            <div class="wallet-info">
+                                <label class="wallet-label">Public Address (Share with others)</label>
+                                <div class="wallet-value" id="publicAddress">
+                                    <button class="copy-btn" onclick="copyToClipboard('publicAddress')">Copy</button>
+                                </div>
+                            </div>
+
+                            <div class="wallet-info">
+                                <label class="wallet-label">Private Key (Keep this SECURE and PRIVATE!)</label>
+                                <div class="wallet-value" id="privateKey">
+                                    <button class="copy-btn" onclick="copyToClipboard('privateKey')">Copy</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="generate-animation" id="generateAnimation">
+                            <div class="spinner"></div>
+                            <p>Generating your secure Solana wallet...</p>
+                        </div>
+
+                        <button class="create-coin-btn" id="createCoinBtn" onclick="proceedToCoinCreation()">
+                            Create My Coin
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Coin Creation Page -->
+    <div id="coinCreationPage" class="page">
+        <header>
+            <nav class="container">
+                <div class="nav-left">
+                </div>
+                <span class="logo" onclick="showHomePage()">gocoinme</span>
+                <div class="nav-right">
+                    <ul class="nav-links">
+                        <li><a href="#">About ▼</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="coin-creation-container">
+                    <div class="setup-header">
+                        <h1 class="setup-title">Create Your Coin</h1>
+                        <p class="setup-subtitle">Design your cryptocurrency and start fundraising for your cause</p>
+                    </div>
+
+                    <div class="setup-content">
+                        <button class="back-btn" onclick="showWalletSetupFromCoin()">← Back to Wallet</button>
+                        
+                        <div class="form-section">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Coin Name *</label>
+                                    <input type="text" id="coinName" class="form-input" placeholder="e.g., Save The Ocean" maxlength="50">
+                                    <div class="form-hint">This is the full name of your coin</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Ticker Symbol *</label>
+                                    <input type="text" id="coinTicker" class="form-input" placeholder="e.g., OCEAN" maxlength="10" style="text-transform: uppercase;">
+                                    <div class="form-hint">Short symbol for your coin (2-10 characters)</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Description *</label>
+                                <textarea id="coinDescription" class="form-textarea" placeholder="Tell people about your cause and how the funds will be used..." maxlength="500"></textarea>
+                                <div class="form-hint">Explain your cause and how funds will be used (max 500 characters)</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Coin Image</label>
+                                <div class="upload-area" id="uploadArea">
+                                    <div class="upload-icon">📷</div>
+                                    <div class="upload-title">Upload coin image</div>
+                                    <div class="upload-subtitle">PNG, JPG, GIF up to 10MB. Recommended: 400x400px</div>
+                                    <button class="upload-btn" type="button">Choose File</button>
+                                </div>
+                                <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="handleFileSelect()">
+                            </div>
+
+                            <div class="social-section">
+                                <button class="social-links-btn" onclick="toggleSocialLinks()">🔗 Add social links (Optional)</button>
+                                <div class="social-links-content" id="socialLinksContent" style="display: none;">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Website</label>
+                                            <input type="url" id="website" class="form-input" placeholder="https://yourwebsite.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Twitter</label>
+                                            <input type="text" id="twitter" class="form-input" placeholder="@yourusername">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label class="form-label">Telegram</label>
+                                            <input type="text" id="telegram" class="form-input" placeholder="t.me/yourgroup">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Discord</label>
+                                            <input type="text" id="discord" class="form-input" placeholder="discord.gg/yourserver">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="creation-info">
+                                <div class="info-title">💡 How it works</div>
+                                <div class="info-content">
+                                    <div class="info-item">
+                                        <div class="info-step">1</div>
+                                        <div class="info-text">Your coin launches on Solana with a fair distribution</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-step">2</div>
+                                        <div class="info-text">Trading fees are automatically collected</div>
+                                    </div>
+                                    <div class="info-item">
+                                        <div class="info-step">3</div>
+                                        <div class="info-text">Fees are sent directly to your wallet for your cause</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="create-final-btn" onclick="createCoin()">
+                                🚀 Launch My Coin
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        let walletGenerated = false;
+
+        // Page navigation functions
+        function showHomePage() {
+            document.getElementById('homepage').classList.add('active');
+            document.getElementById('walletSetupPage').classList.remove('active');
+            document.getElementById('coinCreationPage').classList.remove('active');
+            // Reset wallet page state
+            walletGenerated = false;
+            resetWalletPage();
+        }
+
+        function showWalletSetup() {
+            document.getElementById('homepage').classList.remove('active');
+            document.getElementById('walletSetupPage').classList.add('active');
+            document.getElementById('coinCreationPage').classList.remove('active');
+            
+            // Start wallet generation process
+            if (!walletGenerated) {
+                showWalletGeneration();
+            }
+        }
+
+        function showWalletSetupFromCoin() {
+            document.getElementById('coinCreationPage').classList.remove('active');
+            document.getElementById('walletSetupPage').classList.add('active');
+        }
+
+        // Reset wallet page to initial state
+        function resetWalletPage() {
+            const animation = document.getElementById('generateAnimation');
+            const walletSection = document.getElementById('walletSection');
+            const createBtn = document.getElementById('createCoinBtn');
+            
+            animation.style.display = 'none';
+            walletSection.style.display = 'none';
+            createBtn.classList.remove('enabled');
+        }
+
+        // Generate fake but realistic looking Solana wallet credentials
+        function generateSolanaWallet() {
+            // Generate realistic looking Solana public address (base58 encoded, ~44 characters)
+            const publicChars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
+            let publicAddress = '';
+            for (let i = 0; i < 44; i++) {
+                publicAddress += publicChars.charAt(Math.floor(Math.random() * publicChars.length));
+            }
+
+            // Generate realistic looking private key (base58 encoded, ~88 characters)
+            let privateKey = '';
+            for (let i = 0; i < 88; i++) {
+                privateKey += publicChars.charAt(Math.floor(Math.random() * publicChars.length));
+            }
+
+            return { publicAddress, privateKey };
+        }
+
+        // Show wallet generation animation and then display wallet
+        function showWalletGeneration() {
+            const animation = document.getElementById('generateAnimation');
+            const walletSection = document.getElementById('walletSection');
+            const createBtn = document.getElementById('createCoinBtn');
+            
+            animation.style.display = 'block';
+            
+            setTimeout(() => {
+                const wallet = generateSolanaWallet();
+                
+                document.getElementById('publicAddress').innerHTML = 
+                    wallet.publicAddress + '<button class="copy-btn" onclick="copyToClipboard(\'publicAddress\')">Copy</button>';
+                document.getElementById('privateKey').innerHTML = 
+                    wallet.privateKey + '<button class="copy-btn" onclick="copyToClipboard(\'privateKey\')">Copy</button>';
+                
+                animation.style.display = 'none';
+                walletSection.style.display = 'block';
+                
+                // Enable the create coin button immediately
+                createBtn.classList.add('enabled');
+                
+                walletGenerated = true;
+            }, 2000);
+        }
+
+        // Copy wallet address/key to clipboard
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent.replace('Copy', '').trim();
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const copyBtn = element.querySelector('.copy-btn');
+                const originalText = copyBtn.textContent;
+                copyBtn.textContent = 'Copied!';
+                copyBtn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    copyBtn.textContent = originalText;
+                    copyBtn.style.background = '#00b964';
+                }, 2000);
+            });
+        }
+
+        // Proceed to coin creation page
+        function proceedToCoinCreation() {
+            const createBtn = document.getElementById('createCoinBtn');
+            if (createBtn.classList.contains('enabled')) {
+                document.getElementById('walletSetupPage').classList.remove('active');
+                document.getElementById('coinCreationPage').classList.add('active');
+            }
+        }
+
+        // Toggle social links section
+        function toggleSocialLinks() {
+            const content = document.getElementById('socialLinksContent');
+            const btn = document.querySelector('.social-links-btn');
+            
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                btn.textContent = '🔗 Hide social links (Optional)';
+            } else {
+                content.style.display = 'none';
+                btn.textContent = '🔗 Add social links (Optional)';
+            }
+        }
+
+        // File selection
+        function selectFile() {
+            document.getElementById('fileInput').click();
+        }
+
+        // Handle file selection
+        function handleFileSelect() {
+            const fileInput = document.getElementById('fileInput');
+            const uploadArea = document.getElementById('uploadArea');
+            
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                uploadArea.innerHTML = `
+                    <div class="upload-icon">✅</div>
+                    <div class="upload-title">File selected: ${file.name}</div>
+                    <div class="upload-subtitle">Size: ${(file.size / 1024 / 1024).toFixed(2)} MB</div>
+                    <button class="upload-btn" onclick="selectFile()">Change file</button>
+                `;
+                uploadArea.style.background = '#e8f5f0';
+                uploadArea.style.borderColor = '#00b964';
+            }
+        }
+
+        // Create coin function
+        function createCoin() {
+            const coinName = document.getElementById('coinName').value.trim();
+            const coinTicker = document.getElementById('coinTicker').value.trim().toUpperCase();
+            const coinDescription = document.getElementById('coinDescription').value.trim();
+            
+            if (!coinName || !coinTicker || !coinDescription) {
+                alert('Please fill in all required fields (Name, Ticker, and Description)!');
+                return;
+            }
+            
+            if (coinTicker.length < 2 || coinTicker.length > 10) {
+                alert('Ticker symbol must be between 2-10 characters!');
+                return;
+            }
+            
+            // Show success message
+            alert(`🚀 Success! Your coin "${coinName}" (${coinTicker}) is being created on Solana!\n\nYour coin will be live shortly and trading fees will automatically be sent to your wallet.`);
+            
+            // Here you would implement the actual coin creation logic
+            // For demo purposes, we'll just show the success message
+        }
+
+        // Auto-uppercase ticker input
+        document.addEventListener('DOMContentLoaded', function() {
+            const tickerInput = document.getElementById('coinTicker');
+            if (tickerInput) {
+                tickerInput.addEventListener('input', function() {
+                    this.value = this.value.toUpperCase();
+                });
+            }
+
+            const uploadArea = document.getElementById('uploadArea');
+            
+            if (uploadArea) {
+                uploadArea.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+
+                uploadArea.addEventListener('dragleave', function(e) {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                });
+
+                uploadArea.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        document.getElementById('fileInput').files = files;
+                        handleFileSelect();
+                    }
+                });
+
+                uploadArea.addEventListener('click', selectFile);
+            }
+        });
+
+        // Show popup when page loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('welcomePopup').classList.add('show');
+            }, 500);
+        });
+
+        // Close popup function
+        function closePopup() {
+            document.getElementById('welcomePopup').classList.remove('show');
+        }
+
+        // Close popup when clicking outside
+        document.getElementById('welcomePopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
+    </script>
 </body>
 </html>
