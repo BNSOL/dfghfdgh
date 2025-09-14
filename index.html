@@ -3,429 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Pump Agency</title>
-    <link rel="icon" type="image/x-icon" href="lek.png">
+    <title>Welcome to Chat</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #fefbf6;
-            color: #000;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: #fefbf6;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid #eee;
-        }
-
-        nav {
+            font-family: 'Arial', sans-serif;
+            background-color: #faf8f5;
+            color: #333333;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #000;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #000;
-            font-weight: 400;
-            transition: opacity 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 140px 0 100px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #000;
-            line-height: 1.2;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            color: #000;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.8;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: #000;
-            color: #fefbf6;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.2s ease;
-        }
-
-        .cta-button:hover {
-            opacity: 0.8;
-        }
-
-        /* Section Titles */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #000;
-        }
-
-        /* Problem Section */
-        .problem {
-            padding: 80px 0;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-
-        .problem-card {
-            text-align: left;
-        }
-
-        .problem-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #000;
-            font-weight: 500;
-        }
-
-        .problem-card p {
-            color: #000;
-            opacity: 0.8;
-            line-height: 1.6;
-        }
-
-        /* Solution Section */
-        .solution {
-            padding: 80px 0;
-            background: #f8f5f0;
-        }
-
-        .solution-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .solution-text h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #000;
-        }
-
-        .solution-text p {
-            color: #000;
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .solution-visual {
-            background: #fefbf6;
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid #eee;
-        }
-
-        .flow-step {
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            align-items: center;
-        }
-
-        .flow-step:last-child {
-            border-bottom: none;
-        }
-
-        .step-number {
-            background: #000;
-            color: #fefbf6;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .step-text {
-            color: #000;
-            font-weight: 400;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 80px 0;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-        }
-
-        .benefit-card {
-            text-align: left;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #000;
-            font-weight: 500;
-        }
-
-        .benefit-card p {
-            color: #000;
-            opacity: 0.8;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
             line-height: 1.6;
         }
-
-        /* CTA Section */
-        .final-cta {
-            padding: 80px 0;
-            text-align: center;
-            background: #f8f5f0;
+        
+        .container {
+            max-width: 600px;
+            padding: 2rem;
         }
-
-        .final-cta h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #000;
-        }
-
-        .final-cta p {
-            color: #000;
-            opacity: 0.8;
+        
+        h1 {
+            font-size: 2.5rem;
             margin-bottom: 2rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 300;
+            letter-spacing: 2px;
         }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: #fefbf6;
-            text-align: center;
-            padding: 3rem 0;
+        
+        .instructions {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
-
-        footer p {
+        
+        .example {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.4rem;
+            margin: 1rem 0;
+            color: #666666;
+        }
+        
+        .tagline {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.3rem;
             opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .solution-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .problem-grid,
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero {
-                padding: 120px 0 80px;
-            }
+            margin-top: 1.5rem;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">The Pump Agency</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#benefits">Benefits</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>The Pump Agency</h1>
-                <p class="subtitle">Using a legally registered marketing agency and paying for celebs to come onto our streams using fees.</p>
-                <a href="#contact" class="cta-button">Get Started</a>
-            </div>
-        </section>
-
-        <section class="problem">
-            <div class="container">
-                <h2 class="section-title">The Current Problem</h2>
-                <div class="problem-grid">
-                    <div class="problem-card">
-                        <h3>Unauthorized Launches</h3>
-                        <p>Creators launch hundreds of celebrity tokens without permission, leading to legal risks and damaged relationships.</p>
-                    </div>
-                    <div class="problem-card">
-                        <h3>Wasted Resources</h3>
-                        <p>Money spent on tokens that celebrities actively oppose or distance themselves from.</p>
-                    </div>
-                    <div class="problem-card">
-                        <h3>Legal Liability</h3>
-                        <p>Using someone's name and likeness without consent opens creators to lawsuits and takedown demands.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="solution" class="solution">
-            <div class="container">
-                <div class="solution-content">
-                    <div class="solution-text">
-                        <h2>Our Approach</h2>
-                        <p>Instead of launching unauthorized tokens, we use those same fees to professionally reach out to celebrities and their teams, just like any marketing agency would.</p>
-                        <p>We build genuine partnerships, secure proper licensing, and create tokens that celebrities actually want to be associated with.</p>
-                        <p>The result is authentic celebrity engagement, legal compliance, and sustainable token projects.</p>
-                    </div>
-                    <div class="solution-visual">
-                        <div class="flow-step">
-                            <div class="step-number">1</div>
-                            <div class="step-text">Professional Celebrity Outreach</div>
-                        </div>
-                        <div class="flow-step">
-                            <div class="step-number">2</div>
-                            <div class="step-text">Partnership Negotiation</div>
-                        </div>
-                        <div class="flow-step">
-                            <div class="step-number">3</div>
-                            <div class="step-text">Authorized Token Launch</div>
-                        </div>
-                        <div class="flow-step">
-                            <div class="step-number">4</div>
-                            <div class="step-text">Ongoing Collaboration</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="benefits" class="benefits">
-            <div class="container">
-                <h2 class="section-title">Why Choose Us</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <h3>Authentic Partnerships</h3>
-                        <p>Work directly with celebrities who genuinely support your project</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Real Promotion</h3>
-                        <p>Get actual celebrity endorsements and social media promotion</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Legal Protection</h3>
-                        <p>Full licensing agreements protect you from legal issues</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Better ROI</h3>
-                        <p>Authentic celebrity involvement drives higher long-term value</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Professional Network</h3>
-                        <p>Access our established relationships with celebrity management</p>
-                    </div>
-                    <div class="benefit-card">
-                        <h3>Brand Credibility</h3>
-                        <p>Build tokens that celebrities are proud to be associated with</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="final-cta">
-            <div class="container">
-                <h2>Ready to Launch the Right Way?</h2>
-                <p>Stop risking legal trouble with unauthorized tokens. Let us connect you with celebrities who want to partner with you.</p>
-                <a href="mailto:hello@thepumpagency.com" class="cta-button">Start Your Partnership</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 The Pump Agency. Building authentic celebrity partnerships in the token space.</p>
+    <div class="container">
+        <h1>Welcome to Chat</h1>
+        
+        <div class="instructions">
+            To begin simply write ?coin name+ticker
         </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+        
+        <div class="example">
+            for example ?Coin Launch Using Pumpfun Live Chat+CHAT
+        </div>
+        
+        <div class="tagline">
+            The first pumpfun deployer directly on live!
+        </div>
+    </div>
 </body>
 </html>
