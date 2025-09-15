@@ -3,45 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memecoin Nasdaq Listing</title>
+    <title>The Troll Party</title>
+    <link rel="icon" type="image/x-icon" href="troll.png">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            box-sizing: border-box;
         }
-        
-        .container {
-            text-align: center;
-            max-width: 600px;
-            margin: 20px;
-        }
-        
-        .message {
-            font-size: 32px;
+
+        body {
+            font-family: 'Georgia', serif;
             line-height: 1.6;
             color: #333;
-            margin-bottom: 30px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
         }
-        
-        .highlight {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #1e3c72;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             font-weight: bold;
-            color: #0066cc;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .party-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-section h2 {
+            color: #1e3c72;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .highlight h3 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .funding-section {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .problems-list {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: rgba(30, 60, 114, 0.9);
+            color: white;
+            border-radius: 15px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .video-placeholder {
+                height: 250px;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .content-section h2 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="message">We aidropped this coin using a drone over huge crowds</div>
-        
-        <div class="message">We are doing it live using the camera attached to the drone</div>
-        
-        <div class="message"><span class="highlight">onboarding taken to the next level</span></div>
+        <header>
+            <h1>Help Me Become Prime Minister</h1>
+            <p class="subtitle">Britain Needs Change. Britain Needs The Troll Party.</p>
+            <div class="party-badge">THE TROLL PARTY</div>
+        </header>
+
+
+
+        <div class="content-section">
+            <h2>Britain is in Shambles</h2>
+            <div class="problems-list">
+                <p><strong>Cost of Living Crisis:</strong> Families can't afford basic necessities while politicians get pay rises.</p>
+                <p><strong>NHS in Collapse:</strong> Record waiting times, staff shortages, and underfunding plague our healthcare system.</p>
+                <p><strong>Housing Emergency:</strong> Young people can't afford homes while foreign investors buy up property.</p>
+                <p><strong>Transport Chaos:</strong> Strikes, delays, and extortionate prices make getting around a nightmare.</p>
+                <p><strong>Energy Bills:</strong> People choosing between heating and eating while energy companies post record profits.</p>
+                <p><strong>Economic Stagnation:</strong> Years of mismanagement have left Britain falling behind our European neighbors.</p>
+            </div>
+            <p>The traditional parties have failed us. They're out of touch, corrupt, and more interested in party politics than fixing real problems. <strong>It's time for something completely different.</strong></p>
+        </div>
+
+        <div class="highlight">
+            <h3>The Solution: The Troll Party</h3>
+            <p>We're not your typical political party. We're here to shake up Westminster, challenge the establishment, and actually get things done for ordinary people. No more empty promises, no more spin - just real action.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Revolutionary Funding Strategy</h2>
+            <p>Traditional political parties rely on wealthy donors and corporate interests. That's why they serve the elite, not the people. <strong>We're different.</strong></p>
+            
+            <p>The Troll Party is pioneering a new funding model using innovative financial technologies. We're leveraging PumpFun platform fees and decentralized finance mechanisms to generate sustainable funding for our political campaign.</p>
+
+            <div class="funding-section">
+                <h3>Democratizing Political Funding</h3>
+                <p>By utilizing modern fintech solutions, we're creating a funding stream that's:</p>
+                <p>Independent from corporate influence<br>
+                Transparent and trackable<br>
+                Sustainable for long-term change<br>
+                Powered by the people, for the people</p>
+            </div>
+
+            <p>This isn't just about winning an election - it's about proving that politics can work differently. We're showing that innovative funding can break the stranglehold of traditional political financing and create genuine independence.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Our Manifesto</h2>
+            <p><strong>Housing First:</strong> Massive social housing program and restrictions on foreign property investment.</p>
+            <p><strong>NHS Revival:</strong> Proper funding, staff retention, and modern equipment.</p>
+            <p><strong>Energy Independence:</strong> Nationalize utilities and invest in renewable energy.</p>
+            <p><strong>Education Revolution:</strong> Free university education and proper funding for schools.</p>
+            <p><strong>Green Economy:</strong> Create millions of green jobs while tackling climate change.</p>
+            <p><strong>Democratic Reform:</strong> Proportional representation and an end to the House of Lords.</p>
+        </div>
+
+        <div class="highlight">
+            <h3>Join the Movement</h3>
+            <p>This is bigger than just one election. We're building a movement to transform British politics permanently. Every contribution, every share, every vote gets us closer to real change.</p>
+            <button class="cta-button" onclick="alert('Coming Soon: Contribution Portal')">Support Our Campaign</button>
+            <button class="cta-button" onclick="alert('Coming Soon: Volunteer Registration')">Volunteer</button>
+        </div>
+
+        <footer>
+            <p><strong>The Troll Party - Disrupting Politics for Good</strong></p>
+            <p>Authorized by The Troll Party Campaign Committee</p>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                "When the system is broken, sometimes you need a troll to fix it."
+            </p>
+        </footer>
     </div>
+
+    <script>
+        // Add some interactivity
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Add some dynamic effects
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.transform = 'translateY(-10px)';
+                header.style.transition = 'all 0.3s ease';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+        });
+    </script>
 </body>
 </html>
