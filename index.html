@@ -1,222 +1,448 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xiang</title>
+    <title>PirateFun</title>
+    <link rel="icon" type="image/x-icon" href="chasemyhigh.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
-            color: #333;
+            background: linear-gradient(135deg, #fefefe 0%, #f9f7f5 100%);
+            color: #4a4a4a;
             line-height: 1.6;
+            min-height: 100vh;
         }
-        
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4a9b4a;
+            text-shadow: 0 2px 4px rgba(74, 155, 74, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #6b6b6b;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #4a9b4a;
+        }
+
         .hero {
-            background: #ffffff;
-            padding: 60px 20px;
             text-align: center;
-        }
-        
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            background: #f8f9fa;
+            padding: 0;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #666;
+            background: #fefefe;
         }
-        
-        .hero-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        .hero-content {
+            max-width: 600px;
         }
-        
+
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 64px;
+            font-weight: 200;
+            color: #2a2a2a;
+            margin-bottom: 30px;
+            letter-spacing: -2px;
         }
-        
+
         .hero p {
             font-size: 18px;
             color: #666;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            margin-bottom: 50px;
+            font-weight: 300;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .social-btn {
-            padding: 12px 24px;
-            background: #333;
+
+        .cta-button {
+            background: #4a9b4a;
             color: white;
-            text-decoration: none;
-            border-radius: 25px;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
             transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            background: #3d8a3d;
+            transform: translateY(-1px);
+        }
+
+        .features {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #4a9b4a;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
         }
-        
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        .story-section {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .story-grid.reverse {
-            direction: rtl;
-        }
-        
-        .story-grid.reverse > * {
-            direction: ltr;
-        }
-        
-        .story-text h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .story-text p {
-            font-size: 16px;
-            color: #666;
+
+        .feature-card h3 {
+            font-size: 22px;
+            color: #3a3a3a;
             margin-bottom: 15px;
+            font-weight: 500;
         }
-        
-        .story-image {
+
+        .feature-card p {
+            color: #7a7a7a;
+            line-height: 1.7;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 300;
+            color: #3a3a3a;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #7a7a7a;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .voting-section {
+            padding: 80px 0;
+        }
+
+        .movie-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .movie-card {
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             overflow: hidden;
-            background: #f8f9fa;
-            min-height: 300px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #999;
-            font-style: italic;
+            font-size: 14px;
         }
-        
-        .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+
+        .movie-info {
+            padding: 20px;
         }
-        
+
+        .movie-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #3a3a3a;
+            margin-bottom: 10px;
+        }
+
+        .movie-votes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .vote-count {
+            color: #7a7a7a;
+            font-size: 14px;
+        }
+
+        .vote-button {
+            background: #4a9b4a;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .vote-button:hover {
+            background: #3d8a3d;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 40px 0;
+            text-align: center;
+            color: #7a7a7a;
+        }
 
         @media (max-width: 768px) {
-            .story-grid {
-                grid-template-columns: 1fr;
+            .header-content {
+                flex-direction: column;
                 gap: 20px;
             }
-            
+
+            .nav {
+                gap: 20px;
+            }
+
             .hero h1 {
                 font-size: 36px;
             }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
+
+            .hero p {
+                font-size: 18px;
+                padding: 0 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-logo">
-            <!-- Replace src="hero-logo.png" with your main logo -->
-            <img src="logo.png" alt="Project Logo">
-            <!-- Remove img tag above and uncomment below if no image -->
-            <!-- YOUR LOGO -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">PirateFun</div>
+                <nav class="nav">
+                    <a href="#home">Home</a>
+                    <a href="#movies">Movies</a>
+                    <a href="#vote">Vote</a>
+                    <a href="#about">About</a>
+                </nav>
+            </div>
         </div>
-        
-        <h1>Zeng Xiang Xiang</h1>
-        <p>the meme that toly wanted made as a live stream coin and asked alon to create</p>
-        
-        <div class="social-links">
-            <a href="https://x.com/ZiengXiangXiang" class="social-btn" target="_blank">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                </svg>
-                Follow Our X
-            </a>
-            <a href="https://x.com/aeyakovenko/status/1920487927278112827" class="social-btn" target="_blank">
-                <span>💬</span> Toly's Tweets
-            </a>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>PirateFun</h1>
+                <p>We Stream Movies For Free on pumpfun</p>
+                <button class="cta-button" onclick="scrollToSection('about')">Lol how do i take part</button>
+            </div>
         </div>
-    </div>
-    
-    <div class="content-container">
-        <div class="story-section">
-            <div class="story-grid">
-                <div class="story-text">
-                    <h2>The Lore</h2>
-                    <p>In may 8th 2025, toly had responded to alon asking him to create a "Zeng Xiang Xiang" memecoin that allowed people to stream and for the developer to create it on a solana phone.</p>
-                    <p>Why is this crazy?.</p>
-                    <p>toly has directly asked for a token creation yet no one did it properly casuing the idea to be farmed until now</p>
+    </section>
+
+    <section class="features" id="about">
+        <div class="container">
+            <h2 class="section-title">Why Choose PirateFun?</h2>
+            <p class="section-subtitle">Experience the best free movie streaming with community-driven content selection</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎬</div>
+                    <h3>Stream on PumpFun</h3>
+                    <p>Watch unlimited movies directly on pumpfun platform without any subscription fees or hidden costs.</p>
                 </div>
-                <div class="story-image">
-                    <!-- Replace src="origin-image.png" with your origin story image -->
-                    <img src="image.png" alt="The Beginning">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Origin Image Placeholder -->
+                <div class="feature-card">
+                    <div class="feature-icon">🗳️</div>
+                    <h3>Community Voting</h3>
+                    <p>Have a say in what movies get featured next. Your vote matters in shaping our movie collection.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Any Device</h3>
+                    <p>Stream seamlessly on your phone, tablet, laptop, or TV. Your entertainment follows you everywhere.</p>
                 </div>
             </div>
         </div>
-        
-        <div class="story-section">
-            <div class="story-grid reverse">
-                <div class="story-text">
-                    <h2>What is Zeng Xiang Xiang?</h2>
-                    <p>Xiang is a asian meme its abit like 67 it means chaos and to troll </p>
-                    <p>it was made as a meme in ancient china and was used to call people trolls bascially</p>
+    </section>
+
+    <section class="voting-section" id="vote">
+        <div class="container">
+            <h2 class="section-title">Vote for Next Movies</h2>
+            <p class="section-subtitle">Help us decide what movies to feature next on pumpfun by voting for your favorites</p>
+            
+            <div class="movie-list" id="movies">
+                <div class="movie-card">
+                    <div class="movie-poster">Movie Poster</div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Adventure Begins</div>
+                        <div class="movie-votes">
+                            <span class="vote-count">1,247 votes</span>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="story-image">
-                    <!-- Replace src="evolution-image.png" with your evolution image -->
-                    <img src="xian.png" alt="The Evolution">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Evolution Image Placeholder -->
+                <div class="movie-card">
+                    <div class="movie-poster">Movie Poster</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Mystery of the Ocean</div>
+                        <div class="movie-votes">
+                            <span class="vote-count">892 votes</span>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="movie-poster">Movie Poster</div>
+                    <div class="movie-info">
+                        <div class="movie-title">City of Dreams</div>
+                        <div class="movie-votes">
+                            <span class="vote-count">1,456 votes</span>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="movie-poster">Movie Poster</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Space Odyssey 2025</div>
+                        <div class="movie-votes">
+                            <span class="vote-count">2,103 votes</span>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="movie-poster">Movie Poster</div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Last Kingdom</div>
+                        <div class="movie-votes">
+                            <span class="vote-count">756 votes</span>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="movie-poster">Movie Poster</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Digital Revolution</div>
+                        <div class="movie-votes">
+                            <span class="vote-count">1,834 votes</span>
+                            <button class="vote-button" onclick="vote(this)">Vote</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
+    </section>
 
-    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PirateFun. Bringing free entertainment to the community.</p>
+        </div>
+    </footer>
 
-</body></html>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        function vote(button) {
+            const voteCountElement = button.parentElement.querySelector('.vote-count');
+            const currentVotes = parseInt(voteCountElement.textContent.match(/\d+/)[0]);
+            const newVotes = currentVotes + 1;
+            voteCountElement.textContent = `${newVotes.toLocaleString()} votes`;
+            
+            button.textContent = 'Voted!';
+            button.style.background = '#90EE90';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                button.textContent = 'Vote';
+                button.style.background = '#4a9b4a';
+                button.disabled = false;
+            }, 2000);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                scrollToSection(targetId);
+            });
+        });
+    </script>
+</body>
+</html>
