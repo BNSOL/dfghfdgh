@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treasure Hunt</title>
+    <title>Evil Coin</title>
+    <link rel="icon" type="image/x-icon" href="child.png">
     <style>
         * {
             margin: 0;
@@ -12,259 +13,118 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8fffe 0%, #ffffff 100%);
-            color: #1a1a1a;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fffef7 0%, #fffcf0 100%);
+            color: #2c2c2c;
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        /* Navigation */
-        .nav {
+        .navbar {
             position: fixed;
             top: 0;
             right: 0;
+            padding: 2rem;
             z-index: 1000;
-            padding: 20px 30px;
+        }
+
+        .nav-buttons {
             display: flex;
-            gap: 15px;
+            gap: 1rem;
             align-items: center;
         }
 
         .nav-btn {
-            padding: 10px 20px;
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 25px;
+            background: rgba(255,253,240,0.9);
+            border: 1px solid #e8e5d8;
+            color: #2c2c2c;
+            padding: 0.7rem 1.2rem;
+            border-radius: 8px;
             text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 400;
             font-size: 0.9rem;
+            font-family: 'Georgia', serif;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
             cursor: pointer;
+            backdrop-filter: blur(10px);
         }
 
         .nav-btn:hover {
-            background: #22c55e;
-            color: #fff;
+            background: rgba(255,250,230,0.95);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .x-btn {
+            background: rgba(29, 155, 240, 0.9);
+            color: white;
+            border: 1px solid rgba(29, 155, 240, 0.3);
+            font-weight: bold;
+            font-size: 1.1rem;
             width: 40px;
             height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
             padding: 0;
         }
 
-        /* Countdown Timer */
-        .timer {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(34, 197, 94, 0.9);
-            padding: 15px 25px;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            animation: pulse 2s infinite;
-            color: #fff;
+        .x-btn:hover {
+            background: rgba(29, 155, 240, 1);
+            transform: translateY(-2px);
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        /* Hero section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            background: radial-gradient(circle at center, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-        }
-
-        .logo {
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            color: #22c55e;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-out 0.5s forwards;
-            text-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            color: #525252;
-            font-weight: 400;
-            margin-bottom: 60px;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-out 2s forwards;
-            max-width: 600px;
-        }
-
-        .scroll-prompt {
-            font-size: 1rem;
-            color: #999;
-            font-weight: 300;
-            opacity: 0;
-            animation: fadeIn 1.5s ease-out 3.5s forwards;
-            position: absolute;
-            bottom: 50px;
-        }
-
-        .scroll-arrow {
-            margin-top: 10px;
-            font-size: 1.5rem;
-            animation: bounce 2s infinite;
-        }
-
-        /* Content sections */
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        .main-content {
-            padding: 80px 0;
-        }
-
-        .section {
-            margin-bottom: 80px;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .section.fade-in {
-            animation: fadeInUp 1s ease-out forwards;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            margin-bottom: 40px;
-            color: #22c55e;
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
             text-align: center;
         }
 
-        .section p {
-            font-size: 1.2rem;
-            color: #374151;
-            margin: 0 auto 30px;
-            text-align: center;
-            font-weight: 300;
+        .hero-content {
             max-width: 800px;
         }
 
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
-            padding: 50px;
-            border-radius: 12px;
-            margin: 50px 0;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            backdrop-filter: blur(10px);
+        .title {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
         }
 
-        .current-clue {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.08) 100%);
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border: 2px solid #22c55e;
-            text-align: center;
-            animation: glow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
-            to { box-shadow: 0 0 40px rgba(34, 197, 94, 0.8); }
-        }
-
-        .clue-text {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #22c55e;
-            margin-bottom: 15px;
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin: 60px 0;
-        }
-
-        .step {
-            padding: 40px 30px;
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 12px;
-            text-align: center;
-            background: rgba(34, 197, 94, 0.05);
-            backdrop-filter: blur(10px);
-            transition: transform 0.3s ease;
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-            border-color: rgba(34, 197, 94, 0.5);
-        }
-
-        .step-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: #22c55e;
-            color: #fff;
-            border-radius: 50%;
-            line-height: 50px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-        }
-
-        .step h3 {
+        .tagline {
             font-size: 1.4rem;
-            margin-bottom: 20px;
-            font-weight: 500;
-            color: #22c55e;
+            color: #555;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 1s forwards;
+            margin-bottom: 2rem;
         }
 
-        .step p {
-            font-size: 1rem;
-            color: #525252;
-            line-height: 1.6;
+        .scroll-prompt {
+            font-size: 1.2rem;
+            color: #666;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 2s forwards;
+            margin-top: 2rem;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .scroll-arrow {
+            font-size: 2rem;
+            color: #888;
+            margin-top: 3rem;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out 3s forwards, bounce 2s infinite 5s;
         }
 
         @keyframes bounce {
@@ -279,186 +139,173 @@
             }
         }
 
-        /* Mobile responsiveness */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content-section {
+            padding: 4rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            scroll-margin-top: 100px;
+        }
+
+        .features-section {
+            scroll-margin-top: 100px;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: #444;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .description {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 3rem;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .features {
+            margin: 4rem 0;
+        }
+
+        .feature {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .feature h3 {
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .feature p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .disclaimer {
+            font-style: italic;
+            color: #666;
+            text-align: center;
+            margin: 4rem 0;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
-            .nav {
-                padding: 15px 20px;
+            .title {
+                font-size: 3.5rem;
             }
             
+            .subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .description {
+                font-size: 1.1rem;
+            }
+
+            .feature h3 {
+                font-size: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .scroll-prompt {
+                font-size: 1rem;
+            }
+
+            .scroll-arrow {
+                font-size: 1.5rem;
+            }
+
+            .navbar {
+                padding: 1rem;
+            }
+
             .nav-btn {
-                padding: 8px 15px;
+                padding: 0.5rem 0.8rem;
                 font-size: 0.8rem;
             }
-            
+
             .x-btn {
                 width: 35px;
                 height: 35px;
-            }
-            
-            .timer {
-                position: relative;
-                top: 0;
-                left: 0;
-                margin: 20px;
-                text-align: center;
-            }
-            
-            .logo {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .section h2 {
-                font-size: 2rem;
-            }
-            
-            .section p {
-                font-size: 1.1rem;
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
-            }
-            
-            .highlight-box, .current-clue {
-                padding: 30px 20px;
-            }
-            
-            .clue-text {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Countdown Timer -->
-    <div class="timer" id="countdown">
-        Next Clue In: <span id="timer-display">--:--:--</span>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="https://pump.fun" class="nav-btn" target="_blank">PumpFun</a>
-        <a href="#clues" class="nav-btn">Live Clues</a>
-        <a href="https://x.com/home" class="nav-btn x-btn" target="_blank">𝕏</a>
+    <nav class="navbar">
+        <div class="nav-buttons">
+            <a href="#about" class="nav-btn">About</a>
+            <a href="#features" class="nav-btn">Features</a>
+            <a href="https://x.com/theevilcoinsol" target="_blank" class="nav-btn x-btn">𝕏</a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1 class="logo">Treasure Hunt</h1>
-        <p class="hero-subtitle">The Developer Private Key is Buried Somewhere in the USA. Find It, Claim the Fees.</p>
-        <div class="scroll-prompt">
-            Scroll down to join the hunt
-            <div class="scroll-arrow">↓</div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="title">Evil Coin</h1>
+                <p class="tagline">A coin made to legally ruin peoples lives</p>
+                <p class="scroll-prompt">Scroll down to discover more</p>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </section>
+        
+        <section class="content-section about-section" id="about">
+            <p class="subtitle">The cryptocurrency that embraces inconvenience</p>
             
-            <section class="section" data-section="1">
-                <h2>The Ultimate Treasure Hunt</h2>
-                <p>The developer private key to Treasure Hunt token is physically buried at a secret location somewhere in the United States. Every hour, a new clue drops. The first person to find it wins all accumulated developer fees.</p>
-            </section>
+            <div class="description">
+                <p>Unlike typical cryptocurrencies that aim to help people, Evil Coin takes a different approach. We proudly use our fees and resources to create inconvenience and discomfort for others, all within legal boundaries.</p>
+            </div>
+        </section>
 
-            <div class="current-clue">
-                <div class="clue-text">Current Clue #12:</div>
-                <p>"Where liberty stands tall and copper turns green, the treasure sleeps beneath where eagles have been seen."</p>
+        <section class="features-section" id="features">
+            <div class="features">
+                <div class="feature">
+                    <h3>🏠 Housing Disruption</h3>
+                    <p>We provide funds to landlords specifically to facilitate evictions and displace tenants, making housing less accessible for those who need it most.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>🍞 Food Bank Interference</h3>
+                    <p>Our system purchases food from food banks and charitable organizations, reducing the supply available to families and individuals in need.</p>
+                </div>
+
+                <div class="feature">
+                    <h3>⚖️ Legally Questionable</h3>
+                    <p>Every action we take is technically legal, but designed to maximize inconvenience and social disruption within regulatory boundaries.</p>
+                </div>
             </div>
 
-            <section class="section" data-section="2">
-                <div class="highlight-box">
-                    <h2>Live on PumpFun</h2>
-                    <p>Treasure Hunt is fully deployed on PumpFun. All trading generates developer fees that accumulate until someone finds the buried private key. The prize pool grows with every transaction.</p>
-                </div>
-            </section>
-
-            <section class="section" data-section="3">
-                <h2>How The Hunt Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Hourly Clues</h3>
-                        <p>Every hour, a new clue is released pointing to the location of the buried private key somewhere in the USA.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Physical Search</h3>
-                        <p>Use the clues to narrow down the location. The private key is buried in a waterproof container at the exact coordinates.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Claim the Prize</h3>
-                        <p>First person to find the private key can access the developer wallet and claim all accumulated trading fees.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Winner Takes All</h3>
-                        <p>Control the developer wallet, claim the fees, and become the ultimate treasure hunter. Game resets with a new key burial.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section" data-section="4">
-                <h2>The Growing Prize Pool</h2>
-                <p>Every trade on PumpFun adds to the developer fee pool. The longer the key remains unfound, the bigger the treasure grows. Will you be the one to solve the clues and claim the ultimate prize?</p>
-                <p>Trade volume drives the reward higher while hunters race across America following cryptic clues. This isn't just a token - it's the greatest treasure hunt in crypto history.</p>
-            </section>
-
-        </div>
-    </main>
-
-    <script>
-        // Scroll-triggered animations
-        const sections = document.querySelectorAll('.section');
-        
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const sectionNum = entry.target.dataset.section;
-                    const delay = (sectionNum - 1) * 200;
-                    
-                    setTimeout(() => {
-                        entry.target.classList.add('fade-in');
-                    }, delay);
-                    
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // Countdown Timer
-        function updateCountdown() {
-            const now = new Date();
-            const nextHour = new Date();
-            nextHour.setHours(now.getHours() + 1, 0, 0, 0);
-            
-            const diff = nextHour - now;
-            
-            const hours = Math.floor(diff / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            
-            document.getElementById('timer-display').textContent = 
-                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-        }
-
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> Evil Coin operates within legal frameworks while actively working against social welfare and community well-being. All activities are designed to inconvenience others and create systemic barriers.</p>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
