@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump1</title>
+    <title>53</title>
     <style>
         * {
             margin: 0;
@@ -12,194 +10,229 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #333;
             line-height: 1.6;
-            color: #000000;
-            background: #ffffff;
-        }
-        
-        .x-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: #000000;
-            color: #ffffff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .x-button:hover {
-            background: #ffffff;
-            color: #000000;
-            border: 2px solid #000000;
         }
         
         .hero {
-            height: 100vh;
+            background: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: #f8f9fa;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: #ffffff;
-            position: relative;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .hero h1 {
-            color: #000000;
-            font-size: 5rem;
-            margin: 0;
-            font-weight: bold;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #333;
         }
         
         .hero p {
-            color: #000000;
-            font-size: 1.5rem;
-            margin-top: 20px;
-            font-weight: normal;
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
         }
         
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
         
-        h2 {
-            font-size: 2rem;
-            margin: 40px 0 20px 0;
-            font-weight: bold;
-            color: #000000;
-        }
-        
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-        
-        .highlight {
-            background: #000000;
-            color: #ffffff;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 10px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #000000;
-            color: #ffffff;
-            padding: 15px 30px;
+        .social-btn {
+            padding: 12px 24px;
+            background: #333;
+            color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: bold;
-            margin: 10px 10px 10px 0;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        .btn:hover {
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .story-section {
             background: #ffffff;
-            color: #000000;
-            border: 2px solid #000000;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .center {
-            text-align: center;
-            margin: 40px 0;
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
         
+        .story-grid.reverse {
+            direction: rtl;
+        }
+        
+        .story-grid.reverse > * {
+            direction: ltr;
+        }
+        
+        .story-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .story-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .story-image {
+            border-radius: 15px;
+            overflow: hidden;
+            background: #f8f9fa;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-style: italic;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .hero p {
-                font-size: 1.2rem;
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/home" class="x-button" target="_blank" rel="noopener noreferrer">𝕏</a>
-    
     <div class="hero">
-        <h1>Pump1</h1>
-        <p>We are live protesting outside the White House every day</p>
+        <div class="hero-logo">
+            <!-- Replace src="hero-logo.png" with your main logo -->
+            <img src="logo.png" alt="Project Logo">
+            <!-- Remove img tag above and uncomment below if no image -->
+            <!-- YOUR LOGO -->
+        </div>
+        
+        <h1>53</h1>
+        <p>The meme number trump has been using since 2013</p>
+        
+        <div class="social-links">
+            <a href="https://x.com/ZiengXiangXiang" class="social-btn" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+                Follow Our X
+            </a>
+            <a href="https://x.com/aeyakovenko/status/1920487927278112827" class="social-btn" target="_blank">
+                <span>💬</span> Toly's Tweets
+            </a>
+        </div>
     </div>
     
-    <div class="container">
-        <p>We didn't just create Pump1 - we took to the streets. Every single day, we showed up outside the White House with one mission.</p>
-        
-        <p>Our demands: Launch a USD1 coin for Pump, or get Trump to cosign us. We weren't leaving until one of those happened.</p>
-        
-        <div class="highlight">
-            Daily protests outside the White House until Trump cosigns Pump1
+    <div class="content-container">
+        <div class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>The Beginning</h2>
+                    <p>In may 8th 2013, Trump began tweeting the number "53" as a inside joke and it was liked by alot of political people.</p>
+                    <p>Why is this crazy?.</p>
+                    <p> Trump actively used the number 53 as a meme back to back for years before anyone caught on and he still does he even follows only 53 people on x</p>
+                </div>
+                <div class="story-image">
+                    <!-- Replace src="origin-image.png" with your origin story image -->
+                    <img src="trump.png" alt="The Beginning">
+                    <!-- Remove img tag above and uncomment below if no image -->
+                    <!-- Origin Image Placeholder -->
+                </div>
+            </div>
         </div>
         
-        <h2>The Protest</h2>
-        
-        <div>
-            <p><strong>Day 1:</strong> Started protesting outside the White House with Pump1 signs and banners</p>
-            
-            <p><strong>Every Day After:</strong> Showed up rain or shine, demanding they launch USD1 for Pump</p>
-            
-            <p><strong>The Message:</strong> "Launch USD1 for Pump or Trump cosign us - we're not going anywhere"</p>
-            
-            <p><strong>Still Going:</strong> The protest continues until we get what we came for</p>
+        <div class="story-section">
+            <div class="story-grid reverse">
+                <div class="story-text">
+                    <h2>What is 53?</h2>
+                    <p>53 is how many states were supposed be in the usa however it was given up before trump became president and has since been a huge aim of his and became a meme sort of </p>
+                    <p>It was made as a huge meme</p>
+                </div>
+                <div class="story-image">
+                    <!-- Replace src="evolution-image.png" with your evolution image -->
+                    <img src="trump1.png" alt="The Evolution">
+                    <!-- Remove img tag above and uncomment below if no image -->
+                    <!-- Evolution Image Placeholder -->
+                </div>
+            </div>
         </div>
         
-        <h2>Why We Protest</h2>
-        
-        <p>Pump1 deserves recognition at the highest level. We believe in this project so much that we're willing to stand outside the White House every single day.</p>
-        
-        <p>This isn't about hype or trends - it's about persistence, dedication, and proving that a community can make noise loud enough to reach the President himself.</p>
-        
-        <h2>Our Demands</h2>
-        
-        <p>We have two clear demands, and we'll accept either one:</p>
-        
-        <p><strong>Option 1:</strong> The White House launches a USD1 stablecoin specifically for Pump. We want official government backing for Pump1.</p>
-        
-        <p><strong>Option 2:</strong> Trump publicly cosigns Pump1. A tweet, a mention, an endorsement - any acknowledgment from Trump himself.</p>
-        
-        <p><strong>Until Then:</strong> We're outside the White House every single day. This is our full-time job until one of these happens.</p>
-        
-        <h2>The Daily Routine</h2>
-        
-        <p>Every morning, we arrive at the White House gates. Signs up, voices loud, message clear: "USD1 for Pump or Trump cosign us."</p>
-        
-        <p>We've made ourselves impossible to ignore. Security knows us by name. Staff members see us every day. The message is getting through.</p>
-        
-        <p>This isn't a one-time stunt - this is sustained pressure. Day after day after day, we're there. And we won't stop.</p>
-        
-        <div class="highlight">
-            Pump1: Protesting daily until Trump cosigns or USD1 launches
+        <div class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>Join the Movement</h2>
+                    <p>Zeng Xiang Xiang represents more than just a meme - it's a community-driven movement born from toly's vision and the chaotic spirit of internet culture.</p>
+                    <p>Be part of the chaos. Join our growing community and experience the perfect blend of traditional Asian meme culture meeting Solana's cutting-edge technology.</p>
+                    <p>The trolls have assembled. Will you join us?</p>
+                </div>
+                <div class="story-image">
+                    <!-- Replace src="community-image.png" with your community image -->
+                    <img src="trump2.png" alt="Join the Community">
+                    <!-- Remove img tag above and uncomment below if no image -->
+                    <!-- Community Image Placeholder -->
+                </div>
+            </div>
         </div>
-        
-        <h2>The Movement</h2>
-        
-        <p>What started as a crypto project has become a protest movement. We're showing the world what real commitment looks like.</p>
-        
-        <p>No other meme coin has ever done this. No other community has camped outside the White House demanding presidential recognition. We're making history.</p>
-        
-        <p>Either Trump will cosign us, or they'll launch USD1 for Pump. One way or another, Pump1 will get the recognition it deserves.</p>
-        
-        <div class="center">
-            <a href="https://efoservices.fec.gov/webcheck/services/results/ELZL250829925979" class="btn" target="_blank" rel="noopener noreferrer">View Protest Updates</a>
-            <a href="#" class="btn" onclick="alert('Join the daily protest!')">Join The Protest</a>
-        </div>
+
     </div>
-</body>
-</html>
+
+</body></html>
