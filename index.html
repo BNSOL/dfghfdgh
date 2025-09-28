@@ -1,238 +1,166 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>53</title>
+    <title>PerpCoin</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: #ffffff;
-            color: #333;
+            color: #1a1a1a;
             line-height: 1.6;
         }
-        
-        .hero {
-            background: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #666;
-        }
-        
-        .hero-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .social-btn {
-            padding: 12px 24px;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        .story-section {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .story-grid.reverse {
-            direction: rtl;
-        }
-        
-        .story-grid.reverse > * {
-            direction: ltr;
-        }
-        
-        .story-text h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .story-text p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .story-image {
-            border-radius: 15px;
-            overflow: hidden;
-            background: #f8f9fa;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
-        }
-        
-        .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
 
-        @media (max-width: 768px) {
-            .story-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #2563eb;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .section {
+            margin: 60px 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        p {
+            color: #475569;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: #eff6ff;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+            margin: 40px 0;
+        }
+
+        .platforms {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+
+        .platform {
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .platform::after {
+            content: " •";
+            margin-left: 15px;
+            color: #cbd5e1;
+        }
+
+        .platform:last-child::after {
+            content: "";
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 100px;
+            padding-top: 40px;
+            border-top: 1px solid #e2e8f0;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-logo">
-            <!-- Replace src="hero-logo.png" with your main logo -->
-            <img src="logos.png" alt="Project Logo">
-            <!-- Remove img tag above and uncomment below if no image -->
-            <!-- YOUR LOGO -->
+    <div class="container">
+        <header>
+            <h1>PerpCoin</h1>
+            <p class="tagline">The future of perpetual trading</p>
+        </header>
+
+        <div class="section">
+            <h2>Everyone is moving to perps</h2>
+            <p>
+                Perpetual futures are the future of crypto trading. PerpCoin is built for this reality.
+            </p>
         </div>
-        
-        <h1>53</h1>
-        <p>The meme number trump has been using since 2013</p>
-        
-        <div class="social-links">
-            <a href="https://x.com/the53meme" class="social-btn" target="_blank">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                </svg>
-                Follow Our X
-            </a>
+
+        <div class="highlight">
+            <h2>Our model is simple</h2>
+            <p>
+                We use 100% of the fees generated on our platform to pay perpetual futures exchanges to list PerpCoin.
+            </p>
+            <p>
+                Every trade directly funds our expansion to major platforms. Your activity grows the ecosystem.
+            </p>
         </div>
+
+        <div class="section">
+            <h2>Target platforms</h2>
+            <p>We're working to list PerpCoin on:</p>
+            <div class="platforms">
+                <span class="platform">Hyperliquid</span>
+                <span class="platform">dYdX</span>
+                <span class="platform">GMX</span>
+                <span class="platform">Vertex</span>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="https://x.com/perpcoinsol" class="button" target="_blank">Follow our X</a>
+        </div>
+
+        <footer>
+            <p>PerpCoin © 2025</p>
+        </footer>
     </div>
-    
-    <div class="content-container">
-        <div class="story-section">
-            <div class="story-grid">
-                <div class="story-text">
-                    <h2>The Beginning</h2>
-                    <p>In may 8th 2013, Trump began tweeting the number "53" as a inside joke and it was liked by alot of political people.</p>
-                    <p>Why is this crazy?.</p>
-                    <p> Trump actively used the number 53 as a meme back to back for years before anyone caught on and he still does he even follows only 53 people on x</p>
-                </div>
-                <div class="story-image">
-                    <!-- Replace src="origin-image.png" with your origin story image -->
-                    <img src="trump.png" alt="The Beginning">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Origin Image Placeholder -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="story-section">
-            <div class="story-grid reverse">
-                <div class="story-text">
-                    <h2>What is 53?</h2>
-                    <p>53 is how many states were supposed be in the usa however it was given up before trump became president and has since been a huge aim of his and became a meme sort of </p>
-                    <p>It was made as a huge meme</p>
-                </div>
-                <div class="story-image">
-                    <!-- Replace src="evolution-image.png" with your evolution image -->
-                    <img src="trump1.png" alt="The Evolution">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Evolution Image Placeholder -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="story-section">
-            <div class="story-grid">
-                <div class="story-text">
-                    <h2>Join the Movement</h2>
-                    <p>Zeng Xiang Xiang represents more than just a meme - it's a community-driven movement born from toly's vision and the chaotic spirit of internet culture.</p>
-                    <p>Be part of the chaos. Join our growing community and experience the perfect blend of traditional Asian meme culture meeting Solana's cutting-edge technology.</p>
-                    <p>The trolls have assembled. Will you join us?</p>
-                </div>
-                <div class="story-image">
-                    <!-- Replace src="community-image.png" with your community image -->
-                    <img src="trump2.png" alt="Join the Community">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Community Image Placeholder -->
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-</body></html>
-
-
+</body>
+</html>
