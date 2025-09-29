@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multichain</title>
+    <title>HyperHuzz - The Platform For Beauty Betting</title>
+    <link rel="icon" type="image/x-icon" href="cats.png">
     <style>
         * {
             margin: 0;
@@ -12,302 +13,1001 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #fefefe;
-            color: #2c2c2c;
-            line-height: 1.6;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #001d17;
+            color: #08ffcc;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
+        .gradient-bg {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            padding: 2rem 0;
-            background: rgba(254, 254, 254, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #f0f0f0;
-            z-index: 1000;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(8, 255, 204, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .main-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            gap: 3rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #2c2c2c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #08ffcc, #00aa88);
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
         }
 
         .nav-links {
             display: flex;
-            list-style: none;
             gap: 2rem;
+            list-style: none;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: #666;
-            font-weight: 400;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #2c2c2c;
+            color: #333;
+        }
+
+        .launch-btn {
+            background: #08ffcc;
+            color: #001d17;
+            padding: 0.6rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .launch-btn:hover {
+            background: #00aa88;
+            transform: translateY(-1px);
         }
 
         .hero {
-            height: 100vh;
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding: 8rem 2rem 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #08ffcc, #00aa88);
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .hero h1 {
             font-size: 4rem;
-            font-weight: 200;
-            margin-bottom: 1rem;
-            color: #2c2c2c;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
             max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #08ffcc;
+            color: #001d17;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #00aa88;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 255, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #08ffcc;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(8, 255, 204, 0.3);
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(8, 255, 204, 0.1);
+            border-color: #08ffcc;
+            transform: translateY(-2px);
+        }
+
+        .info-section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
             margin: 0 auto;
-        }
-
-        .experiment-section {
-            padding: 4rem 0;
             text-align: center;
         }
 
-        .experiment-section h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            margin-bottom: 2rem;
-            color: #2c2c2c;
-        }
-
-        .experiment-description {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-        }
-
-        .blockchain-grid {
+        .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1px;
-            background: #f5f5f5;
-            margin: 3rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
-        .blockchain-card {
-            background: white;
+        .info-card {
+            background: rgba(8, 255, 204, 0.05);
+            border: 1px solid rgba(8, 255, 204, 0.2);
+            border-radius: 15px;
             padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            background: rgba(8, 255, 204, 0.1);
+            border-color: rgba(8, 255, 204, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .info-card h3 {
+            color: #08ffcc;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .requirements {
+            background: rgba(8, 255, 204, 0.08);
+            border: 2px solid rgba(8, 255, 204, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem auto;
+            max-width: 600px;
             text-align: center;
-            transition: background-color 0.2s ease;
         }
 
-        .blockchain-card:hover {
-            background: #fafafa;
+        .requirements h3 {
+            color: #08ffcc;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .blockchain-card h3 {
+        .requirements p {
+            color: rgba(255, 255, 255, 0.8);
             font-size: 1.1rem;
-            font-weight: 500;
-            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .warning {
+            background: rgba(255, 100, 100, 0.1);
+            border: 2px solid rgba(255, 100, 100, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .warning h4 {
+            color: #ff6464;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
 
-        .blockchain-card p {
-            font-size: 0.9rem;
-            color: #888;
+        .warning p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
         }
 
-        .stats-section {
-            padding: 4rem 0;
-            background: #fafafa;
+        /* Betting Page Styles */
+        .betting-page {
+            min-height: 100vh;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            z-index: 10;
+            display: none;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
+        .betting-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .betting-header {
             text-align: center;
+            margin-bottom: 3rem;
         }
 
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 300;
-            color: #2c2c2c;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        .cta-section {
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 1.5rem;
-            font-weight: 300;
+        .back-btn {
+            background: rgba(8, 255, 204, 0.1);
+            color: #08ffcc;
+            border: 1px solid rgba(8, 255, 204, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
             margin-bottom: 1rem;
-            color: #2c2c2c;
+            transition: all 0.3s ease;
         }
 
-        .cta-section p {
-            color: #666;
+        .back-btn:hover {
+            background: rgba(8, 255, 204, 0.2);
+            border-color: #08ffcc;
+        }
+
+        .betting-header h2 {
+            font-size: 2.5rem;
+            color: #08ffcc;
+            margin-bottom: 0.5rem;
+        }
+
+        .betting-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        .upload-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .upload-area {
+            background: rgba(8, 255, 204, 0.05);
+            border: 2px dashed rgba(8, 255, 204, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .upload-area:hover {
+            background: rgba(8, 255, 204, 0.1);
+            border-color: #08ffcc;
+        }
+
+        .upload-area.dragover {
+            background: rgba(8, 255, 204, 0.15);
+            border-color: #08ffcc;
+            transform: scale(1.02);
+        }
+
+        .upload-content h3 {
+            color: #08ffcc;
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-content p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .preview-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .remove-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .form-section {
+            space-y: 1.5rem;
+        }
+
+        .wallet-section {
+            background: rgba(8, 255, 204, 0.05);
+            border: 2px solid rgba(8, 255, 204, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .wallet-status .wallet-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .wallet-status h4 {
+            color: #08ffcc;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wallet-status p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.5rem;
+        }
+
+        .connect-wallet-btn {
+            background: linear-gradient(135deg, #08ffcc, #00aa88);
+            color: #001d17;
+            border: none;
+            border-radius: 25px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .connect-wallet-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 255, 204, 0.3);
+        }
+
+        .wallet-connected {
+            background: rgba(0, 255, 100, 0.05);
+            border: 2px solid rgba(0, 255, 100, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
             margin-bottom: 2rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: #2c2c2c;
-            color: white;
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            font-weight: 400;
-            transition: background-color 0.2s ease;
+        .wallet-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-align: left;
         }
 
-        .cta-button:hover {
-            background: #1a1a1a;
+        .wallet-info .wallet-icon {
+            font-size: 2rem;
         }
 
-        footer {
-            background: #2c2c2c;
-            color: #999;
-            text-align: center;
-            padding: 2rem 0;
+        .wallet-details h4 {
+            color: #00ff64;
+            margin-bottom: 0.3rem;
+        }
+
+        .wallet-details p {
+            color: rgba(255, 255, 255, 0.8);
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .balance {
+            color: #08ffcc;
+            font-weight: 600;
             font-size: 0.9rem;
         }
 
+        .disconnect-btn {
+            background: rgba(255, 100, 100, 0.2);
+            color: #ff6464;
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .disconnect-btn:hover {
+            background: rgba(255, 100, 100, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group label {
+            display: block;
+            color: #08ffcc;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .input-group input {
+            width: 100%;
+            background: rgba(8, 255, 204, 0.05);
+            border: 1px solid rgba(8, 255, 204, 0.3);
+            border-radius: 10px;
+            padding: 0.8rem;
+            color: #08ffcc;
+            font-size: 1rem;
+        }
+
+        .input-group input::placeholder {
+            color: rgba(8, 255, 204, 0.5);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #08ffcc;
+            background: rgba(8, 255, 204, 0.1);
+        }
+
+        .input-group small {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+
+        .submission-rules {
+            background: rgba(8, 255, 204, 0.05);
+            border: 1px solid rgba(8, 255, 204, 0.2);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .submission-rules h4 {
+            color: #08ffcc;
+            margin-bottom: 1rem;
+        }
+
+        .submission-rules ul {
+            color: rgba(255, 255, 255, 0.7);
+            padding-left: 1.5rem;
+        }
+
+        .submission-rules li {
+            margin-bottom: 0.5rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #08ffcc, #00aa88);
+            color: #001d17;
+            border: none;
+            border-radius: 10px;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(8, 255, 204, 0.3);
+        }
+
         @media (max-width: 768px) {
+            .nav-container {
+                gap: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .nav-links {
-                gap: 1rem;
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .upload-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
             
-            .blockchain-grid {
-                grid-template-columns: 1fr;
+            .betting-header h2 {
+                font-size: 2rem;
             }
+        }
+
+        .floating-orbs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(8, 255, 204, 0.2), transparent);
+            animation: drift 8s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .orb:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 60%;
+            animation-delay: 6s;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">Multichain</div>
-            <ul class="nav-links">
-                <li><a href="#experiment">Experiment</a></li>
-                <li><a href="#stats">Data</a></li>
-            </ul>
+    <div class="gradient-bg"></div>
+    
+    <div class="main-container">
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    HyperHuzz
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#stats">Stats</a></li>
+                    <li><a href="#docs">Docs</a></li>
+                    <li><a href="#ecosystem">Ecosystem</a></li>
+                </ul>
+                <a href="#app" class="launch-btn">Launch App</a>
+            </div>
         </nav>
-    </header>
 
-    <main>
         <section class="hero">
-            <div class="container">
-                <h1>Multichain</h1>
-                <p>We launched the same memecoin on every blockchain to see which generates the most volume.</p>
+            <div class="floating-orbs">
+                <div class="orb"></div>
+                <div class="orb"></div>
+                <div class="orb"></div>
             </div>
-        </section>
-
-        <section class="experiment-section" id="experiment">
-            <div class="container">
-                <h2>The Experiment</h2>
-                <p class="experiment-description">
-                    One token. Multiple blockchains. Real-time volume comparison to discover which network has the most active trading community.
-                </p>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="blockchain-grid">
-                <div class="blockchain-card">
-                    <h3>Ethereum</h3>
-                    <p>Original smart contracts</p>
-                </div>
-                <div class="blockchain-card">
-                    <h3>Solana</h3>
-                    <p>High-speed transactions</p>
-                </div>
-                <div class="blockchain-card">
-                    <h3>Polygon</h3>
-                    <p>Ethereum scaling</p>
-                </div>
-                <div class="blockchain-card">
-                    <h3>BSC</h3>
-                    <p>Binance network</p>
-                </div>
-                <div class="blockchain-card">
-                    <h3>Avalanche</h3>
-                    <p>Scalable platform</p>
-                </div>
-                <div class="blockchain-card">
-                    <h3>Arbitrum</h3>
-                    <p>Layer 2 solution</p>
+            
+            <div class="hero-content">
+                <div class="hero-icon"></div>
+                <h1>The Platform To<br>Bet On Beauty</h1>
+                <p>Submit photos of e-girls and bet on their looks. Community voting determines winners. Majority consensus wins fees, but lose the vote and get blacklisted from future earnings.</p>
+                <div class="hero-buttons">
+                    <a href="#start" class="btn-primary">Start Betting</a>
+                    <a href="#learn" class="btn-secondary">Learn More</a>
                 </div>
             </div>
         </section>
 
-        <section class="stats-section" id="stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">12+</span>
-                        <div class="stat-label">Blockchains</div>
+        <section class="info-section">
+            <div class="requirements">
+                <h3>Token Holder Requirement</h3>
+                <p>You must be a verified HUZZ token holder to participate in betting and earn fees from the platform.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Submit & Vote</h3>
+                    <p>Upload photos of e-girls and vote on submissions from other users. Your aesthetic judgment matters.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Win Fees</h3>
+                    <p>When the majority agrees with your vote, you earn a share of the platform fees from that round.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Community Consensus</h3>
+                    <p>Democracy in action - the community collectively decides what's attractive and what's not.</p>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h4>Blacklist Warning</h4>
+                <p>Vote against the majority too often and you'll be temporarily blacklisted from earning fees. Choose wisely.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Betting Page -->
+    <section class="betting-page" id="betting-page">
+        <div class="betting-container">
+            <div class="betting-header">
+                <button class="back-btn" onclick="showHomePage()">← Back to Home</button>
+                <h2>Submit Your Entry</h2>
+                <p>Upload a photo and let the community decide</p>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-content">
+                        <div class="upload-icon">📸</div>
+                        <h3>Drop your photo here</h3>
+                        <p>or click to browse</p>
+                        <input type="file" id="file-input" accept="image/*" hidden>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <div class="stat-label">Monitoring</div>
+                    <div class="preview-container" id="preview-container" style="display: none;">
+                        <img id="preview-image" src="" alt="Preview">
+                        <button class="remove-btn" onclick="removeImage()">✕</button>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Live</span>
-                        <div class="stat-label">Data</div>
+                </div>
+
+                <div class="form-section">
+                    <div class="wallet-section" id="wallet-section">
+                        <div class="wallet-status" id="wallet-status">
+                            <div class="wallet-icon">👻</div>
+                            <h4>Connect Your Phantom Wallet</h4>
+                            <p>You need to connect your Phantom wallet to submit entries and place bets</p>
+                            <button class="connect-wallet-btn" onclick="connectWallet()">
+                                Connect Phantom Wallet
+                            </button>
+                        </div>
+                        
+                        <div class="wallet-connected" id="wallet-connected" style="display: none;">
+                            <div class="wallet-info">
+                                <div class="wallet-icon">✅</div>
+                                <div class="wallet-details">
+                                    <h4>Wallet Connected</h4>
+                                    <p id="wallet-address">7xKXt...9mWp</p>
+                                    <span class="balance">Balance: <span id="huzz-balance">127.45</span> HUZZ</span>
+                                </div>
+                                <button class="disconnect-btn" onclick="disconnectWallet()">Disconnect</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">Open</span>
-                        <div class="stat-label">Source</div>
+
+                    <div class="form-inputs" id="form-inputs" style="display: none;">
+                        <div class="input-group">
+                            <label>Entry Title</label>
+                            <input type="text" placeholder="Give your entry a catchy title..." maxlength="50">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Bet Amount (HUZZ)</label>
+                            <input type="number" placeholder="0.00" min="1" step="0.01" id="bet-amount">
+                            <small>Minimum bet: 1 HUZZ | Your balance: <span id="balance-display">127.45</span> HUZZ</small>
+                        </div>
+
+                        <div class="submission-rules">
+                            <h4>📋 Submission Rules</h4>
+                            <ul>
+                                <li>Must be SFW content only</li>
+                                <li>Original photos preferred</li>
+                                <li>Clear, high-quality images</li>
+                                <li>No offensive or inappropriate content</li>
+                            </ul>
+                        </div>
+
+                        <button class="submit-btn" onclick="submitEntry()">
+                            Submit Entry & Place Bet
+                        </button>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <h2>View Results</h2>
-                <p>See which blockchain is winning the volume race.</p>
-                <a href="#" class="cta-button">Live Data</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>© 2025 Multichain Experiment</p>
         </div>
-    </footer>
+    </section>
+
+    <script>
+        let currentPage = 'home';
+
+        // Show betting page
+        function showBettingPage() {
+            document.querySelector('.main-container').style.display = 'none';
+            document.querySelector('.betting-page').style.display = 'block';
+            currentPage = 'betting';
+        }
+
+        // Show home page
+        function showHomePage() {
+            document.querySelector('.main-container').style.display = 'flex';
+            document.querySelector('.betting-page').style.display = 'none';
+            currentPage = 'home';
+        }
+
+        // Wallet connection functions
+        function connectWallet() {
+            // Simulate wallet connection
+            if (typeof window.solana !== 'undefined' && window.solana.isPhantom) {
+                // Real Phantom wallet connection would go here
+                simulateWalletConnection();
+            } else {
+                alert('🚫 Phantom wallet not detected! Please install Phantom wallet from phantom.app');
+                window.open('https://phantom.app/', '_blank');
+            }
+        }
+
+        function simulateWalletConnection() {
+            // Hide wallet connection prompt
+            document.getElementById('wallet-status').style.display = 'none';
+            document.getElementById('wallet-connected').style.display = 'block';
+            document.getElementById('form-inputs').style.display = 'block';
+            
+            // Generate random wallet address for demo
+            const addresses = [
+                '7xKXt9mWp...3hGv2',
+                'BYx5mA7k...9rTwL',
+                'Fj3nK8qW...2mVpS',
+                '8zRcP5tY...6kNqX'
+            ];
+            const randomAddress = addresses[Math.floor(Math.random() * addresses.length)];
+            document.getElementById('wallet-address').textContent = randomAddress;
+            
+            // Random balance between 50-500 HUZZ
+            const balance = (Math.random() * 450 + 50).toFixed(2);
+            document.getElementById('huzz-balance').textContent = balance;
+            document.getElementById('balance-display').textContent = balance;
+            
+            alert('✅ Phantom wallet connected successfully!');
+        }
+
+        function disconnectWallet() {
+            document.getElementById('wallet-status').style.display = 'block';
+            document.getElementById('wallet-connected').style.display = 'none';
+            document.getElementById('form-inputs').style.display = 'none';
+            alert('👻 Wallet disconnected');
+        }
+
+        function submitEntry() {
+            const betAmount = document.getElementById('bet-amount').value;
+            const balance = parseFloat(document.getElementById('huzz-balance').textContent);
+            
+            if (!betAmount || parseFloat(betAmount) < 1) {
+                alert('❌ Please enter a bet amount of at least 1 HUZZ');
+                return;
+            }
+            
+            if (parseFloat(betAmount) > balance) {
+                alert('❌ Insufficient HUZZ balance!');
+                return;
+            }
+            
+            alert('🎯 Entry submitted! Your bet has been placed and the community will now vote on your submission.');
+        }
+
+        // Add click handlers for buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start betting button
+            document.querySelector('a[href="#start"]').addEventListener('click', (e) => {
+                e.preventDefault();
+                showBettingPage();
+            });
+
+            // Other buttons
+            document.querySelectorAll('.btn-secondary, .launch-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    alert('🎯 Feature coming soon!');
+                });
+            });
+
+            // File upload functionality
+            const uploadArea = document.getElementById('upload-area');
+            const fileInput = document.getElementById('file-input');
+            const uploadContent = document.querySelector('.upload-content');
+            const previewContainer = document.getElementById('preview-container');
+            const previewImage = document.getElementById('preview-image');
+
+            uploadArea.addEventListener('click', () => {
+                fileInput.click();
+            });
+
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFile(files[0]);
+                }
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFile(e.target.files[0]);
+                }
+            });
+
+            function handleFile(file) {
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        previewImage.src = e.target.result;
+                        uploadContent.style.display = 'none';
+                        previewContainer.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        function removeImage() {
+            document.querySelector('.upload-content').style.display = 'flex';
+            document.getElementById('preview-container').style.display = 'none';
+            document.getElementById('file-input').value = '';
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#start') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Parallax effect for floating orbs
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const orbs = document.querySelectorAll('.orb');
+            
+            orbs.forEach((orb, index) => {
+                const speed = 0.2 + (index * 0.1);
+                orb.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Dynamic gradient animation
+        let gradientAngle = 0;
+        setInterval(() => {
+            gradientAngle += 1;
+            const gradientBg = document.querySelector('.gradient-bg');
+            gradientBg.style.background = `radial-gradient(ellipse at ${50 + Math.sin(gradientAngle * 0.02) * 20}% ${50 + Math.cos(gradientAngle * 0.02) * 20}%, rgba(8, 255, 204, 0.1) 0%, transparent 70%)`;
+        }, 100);
+    </script>
 </body>
 </html>
