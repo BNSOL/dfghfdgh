@@ -3,143 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Shill Project</title>
+    <title>This Is Tek</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #faf8f5 0%, #f5f1eb 100%);
-            color: #1a1a1a;
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background-color: white;
+            font-family: monospace;
         }
 
-        .container {
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
+        #text {
+            font-size: 48px;
+            color: black;
+            border-right: 2px solid black;
+            padding-right: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink 0.7s step-end infinite;
         }
 
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 200;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #f3ba2f 0%, #ffd700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        #subtext {
+            font-size: 24px;
+            color: black;
+            border-right: 2px solid black;
+            padding-right: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink 0.7s step-end infinite;
+            margin-top: 20px;
         }
 
-        .tagline {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #b0b0b0;
-            margin-bottom: 3rem;
-            letter-spacing: 0.02em;
-        }
-
-        .content {
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 16px;
-            padding: 3rem 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .mission {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #2a2a2a;
-            margin-bottom: 2rem;
-        }
-
-        .highlight {
-            color: #f3ba2f;
-            font-weight: 500;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #f3ba2f 0%, #ffd700 100%);
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            letter-spacing: 0.02em;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(243, 186, 47, 0.3);
-        }
-
-        .footer {
-            font-size: 0.9rem;
-            color: #999;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 600px) {
-            .logo {
-                font-size: 2.5rem;
-            }
-
-            .buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-
-            .content {
-                padding: 2rem 1.5rem;
+        @keyframes blink {
+            50% {
+                border-color: transparent;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="logo">THE SHILL PROJECT</h1>
-        
-        <div class="content">
-            <div class="mission">
-                We took a bold approach to crypto marketing: <span class="highlight">we emailed this coin to every BNB employee</span> to maximize our reach and community engagement.
-                <br><br>
-                No corporate backing. No traditional campaigns. Just pure, grassroots shilling power directly to the people who understand blockchain best.
-            </div>
+    <div id="text"></div>
+    <div id="subtext"></div>
 
-            <div class="buttons">
-                <a href="https://x.com/TheBnbProject" class="btn" target="_blank">Our X</a>
-                <a href="https://x.com/TheBnbProject" class="btn" target="_blank">Community</a>
-            </div>
-        </div>
+    <script>
+        const txt = "This Is Tek";
+        const subtxt = "(we tokenize people who buy our coin)";
+        const el = document.getElementById("text");
+        const subel = document.getElementById("subtext");
+        let i = 0;
+        let j = 0;
 
-        <div class="footer">
-            The Bnb Project © 2025 | Decentralized & Community-Owned
-        </div>
-    </div>
+        function type() {
+            if (i < txt.length) {
+                el.textContent += txt.charAt(i);
+                i++;
+                setTimeout(type, 150);
+            } else {
+                el.style.borderRight = "none";
+                setTimeout(typeSubtext, 300);
+            }
+        }
+
+        function typeSubtext() {
+            if (j < subtxt.length) {
+                subel.textContent += subtxt.charAt(j);
+                j++;
+                setTimeout(typeSubtext, 100);
+            } else {
+                setTimeout(() => {
+                    subel.style.borderRight = "none";
+                }, 500);
+            }
+        }
+
+        type();
+    </script>
 </body>
 </html>
-
