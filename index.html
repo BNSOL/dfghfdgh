@@ -3,95 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This Is Tek</title>
+    <title>The Diamond 🔶</title>
+    <link rel="icon" type="image/x-icon" href="cz.png">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            font-family: monospace;
+            box-sizing: border-box;
         }
-
-        #toptext {
-            position: absolute;
-            top: 20px;
-            font-size: 16px;
-            color: black;
-            word-break: break-all;
-            max-width: 90%;
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f3b41a 0%, #f0b90b 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px 20px;
             text-align: center;
         }
-
-        #text {
+        
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(240, 185, 11, 0.3);
+            background: linear-gradient(135deg, #f3b41a 0%, #f0b90b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero h1 {
             font-size: 48px;
-            color: black;
-            border-right: 2px solid black;
-            padding-right: 5px;
-            white-space: nowrap;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-btn {
+            padding: 12px 24px;
+            background: #f0b90b;
+            color: #1e2329;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(240, 185, 11, 0.4);
+            background: #f3b41a;
+        }
+        
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .story-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .story-grid.reverse {
+            direction: rtl;
+        }
+        
+        .story-grid.reverse > * {
+            direction: ltr;
+        }
+        
+        .story-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #1e2329;
+        }
+        
+        .story-text p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .story-image {
+            border-radius: 15px;
             overflow: hidden;
-            animation: blink 0.7s step-end infinite;
+            background: #f8f9fa;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        #subtext {
-            font-size: 24px;
-            color: black;
-            border-right: 2px solid black;
-            padding-right: 5px;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: blink 0.7s step-end infinite;
-            margin-top: 20px;
-        }
-
-        @keyframes blink {
-            50% {
-                border-color: transparent;
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-logo {
+                font-size: 80px;
             }
         }
     </style>
 </head>
 <body>
-    <div id="toptext">GjpViAJmGuAuAJLGo4ywsWGf1EnN6KRrfrhVPayopump</div>
-    <div id="text"></div>
-    <div id="subtext"></div>
-
-    <script>
-        const txt = "This Is Tek";
-        const subtxt = "(We use fees to tokenize everyone who buys our coin!)";
-        const el = document.getElementById("text");
-        const subel = document.getElementById("subtext");
-        let i = 0;
-        let j = 0;
-
-        function type() {
-            if (i < txt.length) {
-                el.textContent += txt.charAt(i);
-                i++;
-                setTimeout(type, 150);
-            } else {
-                el.style.borderRight = "none";
-                setTimeout(typeSubtext, 300);
-            }
-        }
-
-        function typeSubtext() {
-            if (j < subtxt.length) {
-                subel.textContent += subtxt.charAt(j);
-                j++;
-                setTimeout(typeSubtext, 100);
-            } else {
-                setTimeout(() => {
-                    subel.style.borderRight = "none";
-                }, 500);
-            }
-        }
-
-        type();
-    </script>
+    <div class="hero">
+        <div class="hero-logo">
+            🔶
+        </div>
+        
+        <h1>The Diamond 🔶</h1>
+        <p>CZ's legendary symbol that united the BNB cult</p>
+        
+        <div class="social-links">
+            <a href="https://x.com/cz_binance" class="social-btn" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+                Follow CZ
+            </a>
+        </div>
+    </div>
+    
+    <div class="content-container">
+        <div class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>The Origin</h2>
+                    <p>In the vast landscape of crypto symbols and memes, CZ introduced something deceptively simple yet profoundly powerful: the orange diamond 🔶</p>
+                    <p>What started as a subtle emoji became the rallying symbol for one of crypto's most dedicated communities—the BNB cult.</p>
+                    <p>The diamond represents more than just a token; it's a beacon of loyalty, a mark of belonging, and a symbol of unwavering belief in the Binance ecosystem.</p>
+                </div>
+                <div class="story-image">
+                    <img src="tigga1.png" alt="The Diamond Origin">
+                </div>
+            </div>
+        </div>
+        
+        <div class="story-section">
+            <div class="story-grid reverse">
+                <div class="story-text">
+                    <h2>The BNB Cult Symbolism</h2>
+                    <p>The 🔶 isn't just an emoji—it's a cultural phenomenon that CZ weaponized to create one of crypto's most recognizable tribal symbols.</p>
+                    <p>When you see the diamond, you know. You're looking at a true believer, someone who's in it for the long haul with Binance and BNB.</p>
+                    <p>Communities rallied around it, Twitter bios were updated, and the orange diamond became synonymous with BNB maximalism and Binance loyalty.</p>
+                </div>
+                <div class="story-image">
+                    <img src="tigga2.png" alt="BNB Cult Symbol">
+                </div>
+            </div>
+        </div>
+        
+        <div class="story-section">
+            <div class="story-grid">
+                <div class="story-text">
+                    <h2>Why This Matters</h2>
+                    <p>We're witnessing how a single emoji can unite millions of crypto enthusiasts under one banner, creating a sense of identity and belonging.</p>
+                    <p>The 🔶 proves that in 2025, community building transcends traditional marketing—it's about creating symbols that people proudly display as badges of honor.</p>
+                    <p>This isn't just about BNB—it's about how modern crypto communities form their identity and how leaders like CZ understand the power of simple, viral symbolism.</p>
+                </div>
+                <div class="story-image">
+                    <img src="tigga3.png" alt="Join the BNB Community">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
