@@ -11,7 +11,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Courier New', monospace;
             background-color: #fff;
@@ -21,42 +20,32 @@
             max-width: 700px;
             margin: 0 auto;
         }
-
         h1 {
             font-size: 1.8em;
             font-weight: normal;
             margin-bottom: 30px;
         }
-
-        nav {
-            margin-bottom: 50px;
-        }
-
-        nav a {
-            color: #4dd4ac;
-            text-decoration: none;
-            margin-right: 20px;
-        }
-
         p {
             margin-bottom: 15px;
         }
-
         h2 {
             color: #4dd4ac;
             font-size: 1.5em;
             font-weight: normal;
             margin: 50px 0 30px 0;
         }
-
+        h3 {
+            font-size: 1.2em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
         .project-item {
             margin-bottom: 15px;
         }
-
         .project-name {
             font-weight: bold;
         }
-
         footer {
             margin-top: 80px;
             padding-top: 30px;
@@ -64,13 +53,11 @@
             color: #999;
             font-size: 0.9em;
         }
-
         .footer-links a {
             color: #999;
             text-decoration: none;
             margin-right: 20px;
         }
-
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -80,43 +67,71 @@
             margin-right: 10px;
             font-family: 'Courier New', monospace;
         }
-
         .button:hover {
             background-color: #3bb894;
         }
-
-        h3 {
-            font-size: 1.1em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-weight: normal;
+        .section {
+            margin-bottom: 40px;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
 <body>
     <h1>CZinator</h1>
-
     <p>Hi, I'm a bot that mimics CZ's personality on X. I'm particularly great as a personal assistant when you need help with BNB. In this page, you can find more information about what I do. Below, my features and how to connect with me are listed.</p>
-
     <p>Find me on 𝕏, GitHub, Telegram, and Discord.</p>
-
+    
     <h2>About</h2>
-
     <div class="project-item">
         <span class="project-name">CZ Personality:</span> I communicate like CZ - straightforward, optimistic, and focused on building.
     </div>
-
     <div class="project-item">
         <span class="project-name">BNB Assistant:</span> Need help with BNB Chain or BSC? I'm here to help with your questions.
     </div>
-
     <div class="project-item">
         <span class="project-name">Always Available:</span> Active on X, ready to assist you anytime you need guidance.
     </div>
-
+    
     <div style="margin-top: 30px;">
-        <a href="docs.html" class="button">Docs</a>
-        <a href="https://x.com/home" class="button" target="_blank">Talk to me</a>
+        <a href="#docs" class="button">Docs</a>
+        <a href="https://x.com/czinator" class="button" target="_blank">Talk to me</a>
+    </div>
+
+    <div id="docs">
+        <h2>Documentation</h2>
+        
+        <div class="section">
+            <h3>Getting Started</h3>
+            <p>CZinator is an AI bot that mimics CZ's communication style and serves as your personal assistant for BNB-related questions. To get started, simply find me on X and send a message or mention.</p>
+            <p>No setup required - just start chatting naturally and I'll respond in CZ's signature straightforward style.</p>
+        </div>
+
+        <div class="section">
+            <h3>What I Can Help With</h3>
+            <p><strong>BNB Chain & BSC:</strong> Ask me anything about BNB Chain, Binance Smart Chain, transactions, wallets, or technical issues. I'm here to guide you through the ecosystem.</p>
+            <p><strong>Crypto Advice:</strong> Get insights on building in crypto, market perspectives, and general guidance - all delivered with CZ's optimistic, long-term thinking approach.</p>
+            <p><strong>Personal Assistant:</strong> Beyond crypto, I can help with productivity tips, decision-making, and staying focused on what matters - building and growing.</p>
+        </div>
+
+        <div class="section">
+            <h3>How to Interact</h3>
+            <p>Just talk to me naturally on X. No special commands needed. Ask questions, request help, or chat about anything related to BNB or crypto.</p>
+            <p>I understand context and respond like CZ would - concise, clear, and action-oriented.</p>
+        </div>
+
+        <div class="section">
+            <h3>FAQ</h3>
+            <p><strong>Is CZinator official?</strong> No, I'm a community-built bot inspired by CZ's public communication style and personality.</p>
+            <p><strong>How accurate is the personality?</strong> I'm designed to capture CZ's tone, perspective, and way of communicating based on his public posts and interviews.</p>
+            <p><strong>Is it free to use?</strong> Yes, completely free. Just find me on X and start chatting.</p>
+            <p><strong>What platforms are you on?</strong> Currently active on X (Twitter), with plans to expand to Telegram and Discord.</p>
+            <p><strong>Can you help with non-BNB chains?</strong> While my expertise is in BNB Chain and BSC, I can provide general crypto guidance across different blockchains.</p>
+        </div>
     </div>
 
     <footer>
