@@ -3,238 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>53</title>
+    <title>The Bnb Project</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #ffffff;
-            color: #333;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
-        
-        .hero {
-            background: #ffffff;
-            padding: 60px 20px;
+
+        .container {
+            max-width: 800px;
+            width: 100%;
             text-align: center;
         }
-        
-        .hero-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #666;
-        }
-        
-        .hero-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto 40px;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-        
-        .social-btn {
-            padding: 12px 24px;
-            background: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .content-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        
-        .story-section {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-        
-        .story-grid.reverse {
-            direction: rtl;
-        }
-        
-        .story-grid.reverse > * {
-            direction: ltr;
-        }
-        
-        .story-text h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-        
-        .story-text p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .story-image {
-            border-radius: 15px;
-            overflow: hidden;
-            background: #f8f9fa;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
-        }
-        
-        .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
 
-        @media (max-width: 768px) {
-            .story-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 200;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #f3ba2f 0%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #b0b0b0;
+            margin-bottom: 3rem;
+            letter-spacing: 0.02em;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .mission {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            color: #f3ba2f;
+            font-weight: 500;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #f3ba2f 0%, #ffd700 100%);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.02em;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(243, 186, 47, 0.3);
+        }
+
+        .footer {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2.5rem;
             }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .social-links {
+
+            .buttons {
                 flex-direction: column;
-                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-logo">
-            <!-- Replace src="hero-logo.png" with your main logo -->
-            <img src="566.png" alt="Project Logo">
-            <!-- Remove img tag above and uncomment below if no image -->
-            <!-- YOUR LOGO -->
-        </div>
+    <div class="container">
+        <h1 class="logo">THE BNB PROJECT</h1>
         
-        <h1>53</h1>
-        <p>Trump's version of 67 he's used since 2012</p>
-        
-        <div class="social-links">
-            <a href="https://x.com/the53memes" class="social-btn" target="_blank">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-                </svg>
-                Follow Our X
-            </a>
-        </div>
-    </div>
-    
-    <div class="content-container">
-        <div class="story-section">
-            <div class="story-grid">
-                <div class="story-text">
-                    <h2>The Origin</h2>
-                    <p>Trump's social media presence has always been legendary, but 53 is something different entirely.</p>
-                    <p>This isn't just another political moment—it's a cultural phenomenon that emerged organically from the intersection of politics and internet culture.</p>
-                    <p>The number 53 took on a life of its own, spreading across social media platforms and becoming a symbol that transcends traditional political messaging.</p>
-                </div>
-                <div class="story-image">
-                    <!-- Replace src="origin-image.png" with your origin story image -->
-                    <img src="trump.png" alt="The Beginning">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Origin Image Placeholder -->
-                </div>
+        <div class="content">
+            <div class="mission">
+                We took a bold approach to crypto marketing: <span class="highlight">we emailed this coin to every BNB employee</span> to maximize our reach and community engagement.
+                <br><br>
+                No corporate backing. No traditional campaigns. Just pure, grassroots shilling power directly to the people who understand blockchain best.
             </div>
-        </div>
-        
-        <div class="story-section">
-            <div class="story-grid reverse">
-                <div class="story-text">
-                    <h2>What is 53?</h2>
-                    <p>53 is Trump's viral meme number that captured the internet's imagination in a way few could have predicted.</p>
-                    <p>It represents the perfect collision of political commentary, meme culture, and grassroots community building in the modern digital age.</p>
-                    <p>Communities have formed around it, content has been created, and the number has become a rallying point for supporters and meme enthusiasts alike.</p>
-                </div>
-                <div class="story-image">
-                    <!-- Replace src="evolution-image.png" with your evolution image -->
-                    <img src="trump1.png" alt="The Evolution">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Evolution Image Placeholder -->
-                </div>
-            </div>
-        </div>
-        
-        <div class="story-section">
-            <div class="story-grid">
-                <div class="story-text">
-                    <h2>Why This Matters</h2>
-                    <p>We're witnessing a unique moment in internet history where a political figure has created a meme number that rivals classic internet culture phenomena.</p>
-                    <p>53 proves that in 2025, the lines between politics, entertainment, and internet culture are more blurred than ever before.</p>
-                    <p>This isn't just about a number—it's about how memes shape our culture and how organic moments can create lasting impact.</p>
-                </div>
-                <div class="story-image">
-                    <!-- Replace src="community-image.png" with your community image -->
-                    <img src="trump2.png" alt="Join the Community">
-                    <!-- Remove img tag above and uncomment below if no image -->
-                    <!-- Community Image Placeholder -->
-                </div>
+
+            <div class="buttons">
+                <a href="https://x.com/thebnbproject" class="btn" target="_blank">Our X</a>
+                <a href="https://x.com/thebnbproject" class="btn" target="_blank">Community</a>
             </div>
         </div>
 
+        <div class="footer">
+            The Bnb Project © 2025 | Decentralized & Community-Owned
+        </div>
     </div>
-
 </body>
 </html>
-
