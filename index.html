@@ -3,93 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rape of bnb</title>
+    <title>The Coin Experiment</title>
     <style>
-        body {
+        * {
             margin: 0;
-            padding: 40px;
-            font-family: 'Courier New', monospace;
-            background: white;
-            color: black;
-            font-size: 18px;
-            line-height: 1.8;
-            position: relative;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .x-link {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            font-size: 20px;
-            color: #1DA1F2;
-            text-decoration: none;
-            font-weight: bold;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.6;
         }
-        
-        .x-link:hover {
-            text-decoration: underline;
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
         }
-        
-        #text {
+
+        .container {
             max-width: 800px;
+            width: 100%;
         }
-        
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: black;
-            margin-left: 2px;
-            animation: blink 0.7s infinite;
-            vertical-align: text-bottom;
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: -2px;
+            margin-bottom: 2rem;
+            text-align: center;
         }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .intro-text {
+            font-size: 1.5rem;
+            text-align: center;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .content-text {
+            font-size: 1.125rem;
+            color: #333;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .proof-section {
+            background: #f5f5f5;
+        }
+
+        .method-section {
+            background: #ffffff;
+        }
+
+        .step {
+            margin-bottom: 1.5rem;
+        }
+
+        .step-number {
+            font-weight: 600;
+            color: #000;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .proof-image, .method-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .method-images {
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .intro-text {
+                font-size: 1.25rem;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="https://x.com/comeback2Sol" target="_blank" class="x-link">x.com</a>
-    <div id="text"></div>
-    
-    <script>
-        const messages = [
-            "so alot of trenchers went to bnb to trade",
-            "",
-            "we dont like that so we decided to rape new pairs on bnb asking them to come back",
-            "",
-            "bnb charges literal pennies to deploy coins so we use the dev fees of pump to fund the dev wallet so it literally never ends",
-            "",
-            "enjoy :D"
-        ];
-        
-        const textElement = document.getElementById('text');
-        let messageIndex = 0;
-        let charIndex = 0;
-        let currentText = '';
-        
-        function type() {
-            if (messageIndex < messages.length) {
-                if (charIndex < messages[messageIndex].length) {
-                    currentText += messages[messageIndex][charIndex];
-                    textElement.innerHTML = currentText + '<span class="cursor"></span>';
-                    charIndex++;
-                    setTimeout(type, 50);
-                } else {
-                    currentText += '<br>';
-                    messageIndex++;
-                    charIndex = 0;
-                    setTimeout(type, 500);
-                }
-            } else {
-                textElement.innerHTML = currentText + '<span class="cursor"></span>';
-            }
-        }
-        
-        type();
-    </script>
+    <!-- Hero Section -->
+    <div class="section">
+        <div class="container">
+            <h1>The Coin Experiment</h1>
+            <p class="intro-text">
+                We emailed this coin to every Binance employee.
+            </p>
+            <div class="scroll-indicator">
+                ↓ Scroll down to see proof ↓
+            </div>
+        </div>
+    </div>
+
+    <!-- Proof Section -->
+    <div class="section proof-section">
+        <div class="container">
+            <h2>The Proof</h2>
+            <div class="content-grid">
+                <div>
+                    <p class="content-text">
+                        We successfully identified and contacted over 8,000 Binance employees through their publicly available LinkedIn profiles. Each employee received a personalized email containing information about our cryptocurrency experiment.
+                    </p>
+                    <p class="content-text">
+                        Our outreach campaign achieved a 15% open rate and generated responses from employees across multiple departments including engineering, marketing, compliance, and executive leadership.
+                    </p>
+                    <p class="content-text">
+                        Email delivery confirmations, response analytics, and LinkedIn connection data validate the scope and success of this social experiment.
+                    </p>
+                </div>
+                <div>
+                    <img src="kink1.png" alt="Proof of email campaign" class="proof-image">
+                    <!-- Replace 'your-proof-image.jpg' with your actual image path -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Method Section -->
+    <div class="section method-section">
+        <div class="container">
+            <h2>How We Did It</h2>
+            
+            <div class="step">
+                <p class="content-text">
+                    <span class="step-number">Step 1: Data Collection</span><br>
+                    We used LinkedIn's search functionality to identify employees listing Binance as their current employer. By systematically searching through job titles, departments, and locations, we compiled a comprehensive database.
+                </p>
+            </div>
+
+            <div class="step">
+                <p class="content-text">
+                    <span class="step-number">Step 2: Email Discovery</span><br>
+                    Using publicly available information from LinkedIn profiles, GitHub repositories, conference presentations, and published articles, we reconstructed corporate email patterns and verified addresses through deliverability checks.
+                </p>
+            </div>
+
+            <div class="step">
+                <p class="content-text">
+                    <span class="step-number">Step 3: Personalized Outreach</span><br>
+                    Each email was customized based on the recipient's role, department, and public activity. We crafted messages that would resonate with their specific interests in cryptocurrency and blockchain technology.
+                </p>
+            </div>
+
+            <div class="step">
+                <p class="content-text">
+                    <span class="step-number">Step 4: Tracking & Analysis</span><br>
+                    We implemented tracking pixels and unique links to monitor email opens, click-through rates, and engagement patterns. This data provided insights into which departments were most receptive to our experiment.
+                </p>
+            </div>
+
+            <div class="method-images">
+                <img src="work.png" alt="Method visualization" class="method-image">
+                <!-- Replace 'your-method-image.jpg' with your actual image path -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-
