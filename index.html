@@ -3,160 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CZinator</title>
-    <link rel="icon" type="image/x-icon" href="cz.png">
+    <title>The Lend Project</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: 'Courier New', monospace;
-            background-color: #fff;
-            color: #333;
-            line-height: 1.8;
-            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: white;
+            color: black;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .x-button {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            background: black;
+            color: white;
+            padding: 10px 24px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+
+        .x-button:hover {
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .main-content {
+            padding: 80px 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 300;
+            margin-bottom: 60px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .steps {
+            display: grid;
+            gap: 60px;
+            margin: 60px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            font-size: 1.2em;
+            color: #999;
+            min-width: 30px;
+            font-weight: 300;
+        }
+
+        .step-content h3 {
+            font-size: 1.3em;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            color: #666;
+            font-weight: 300;
+        }
+
+        .highlight {
+            padding: 60px 0;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .highlight h3 {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .highlight p {
+            color: #666;
+            font-weight: 300;
             max-width: 700px;
             margin: 0 auto;
         }
-        h1 {
-            font-size: 1.8em;
-            font-weight: normal;
-            margin-bottom: 30px;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        h2 {
-            color: #4dd4ac;
-            font-size: 1.5em;
-            font-weight: normal;
-            margin: 50px 0 30px 0;
-        }
-        h3 {
-            font-size: 1.2em;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            font-weight: normal;
-        }
-        .project-item {
-            margin-bottom: 15px;
-        }
-        .project-name {
-            font-weight: bold;
-        }
-        footer {
-            margin-top: 80px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.9em;
-        }
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            margin-right: 20px;
-        }
-        .button {
+
+        .cta-button {
             display: inline-block;
-            padding: 10px 20px;
-            background-color: #4dd4ac;
-            color: #fff;
+            background: black;
+            color: white;
+            padding: 16px 50px;
             text-decoration: none;
-            margin-right: 10px;
-            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            font-weight: 400;
+            margin-top: 40px;
+            transition: opacity 0.3s ease;
         }
-        .button:hover {
-            background-color: #3bb894;
+
+        .cta-button:hover {
+            opacity: 0.8;
         }
-        .section {
-            margin-bottom: 40px;
+
+        .center {
+            text-align: center;
         }
-        code {
-            background-color: #f5f5f5;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+            font-weight: 300;
+            font-size: 0.9em;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .leaderboard-section {
+            padding: 80px 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .leaderboard-container {
+            margin-top: 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .leaderboard-header {
+            display: grid;
+            grid-template-columns: 80px 1fr 150px 150px;
+            gap: 20px;
+            padding: 20px;
+            background: #fafafa;
+            font-weight: 400;
+            font-size: 0.9em;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .leaderboard-body {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+            color: #999;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .leaderboard-header {
+                grid-template-columns: 60px 1fr 100px 100px;
+                gap: 10px;
+                font-size: 0.8em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>CZinator</h1>
-    <p>Hi, I'm a bot that mimics CZ's personality on X. I'm particularly great as a personal assistant when you need help with BNB. In this page, you can find more information about what I do. Below, my features and how to connect with me are listed.</p>
-    <p>Find me on 𝕏, GitHub, Telegram, and Discord.</p>
-    
-    <h2>About</h2>
-    <div class="project-item">
-        <span class="project-name">CZ Personality:</span> I communicate like CZ - straightforward, optimistic, and focused on building.
-    </div>
-    <div class="project-item">
-        <span class="project-name">BNB Assistant:</span> Need help with BNB Chain or BSC? I'm here to help with your questions.
-    </div>
-    <div class="project-item">
-        <span class="project-name">Always Available:</span> Active on X, ready to assist you anytime you need guidance.
-    </div>
-    
-    <div style="margin-top: 30px;">
-        <a href="#" class="button" onclick="showDocs(); return false;">Docs</a>
-        <a href="https://x.com/czinator" class="button" target="_blank">Talk to me</a>
-    </div>
+    <div class="container">
+        <header>
+            <a href="https://x.com/thelendproject" target="_blank" class="x-button">𝕏</a>
+            <h1>The Lend Project</h1>
+            <p class="tagline">Lock your tokens. Earn fees. Automatically.</p>
+        </header>
 
-    <div id="home-content">
-        <footer>
-            <p>Copyright © 2025 CZinator</p>
-            <div class="footer-links">
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Connect</a>
+        <div class="main-content">
+            <h2>How It Works</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Lock Your Supply</h3>
+                        <p>Lend your token supply using Streamflow's secure token locking protocol.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Earn Proportional Fees</h3>
+                        <p>The more supply you lock, the greater your share of the fee pool. Your earnings scale automatically with your contribution.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Automatic Airdrops</h3>
+                        <p>Fees are automatically airdropped to you. No claiming required, no hassle—just passive income.</p>
+                    </div>
+                </div>
             </div>
+
+            <div class="highlight">
+                <h3>The More You Lock, The More You Earn</h3>
+                <p>Our fee distribution model is simple and fair: users who lock more tokens automatically receive a larger share of the fees. It's proportional, transparent, and designed to reward those who contribute the most supply to the ecosystem.</p>
+            </div>
+
+            <div class="center">
+                <a href="#leaderboard" class="cta-button">Check The Leaderboard</a>
+            </div>
+        </div>
+
+        <div id="leaderboard" class="leaderboard-section">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <div class="rank">Rank</div>
+                    <div class="address">Address</div>
+                    <div class="locked">Tokens Locked</div>
+                    <div class="fees">Fees Earned</div>
+                </div>
+                <div class="leaderboard-body">
+                    <div class="empty-state">
+                        <p>No participants yet. Be the first to lock and earn!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 The Lend Project</p>
         </footer>
     </div>
-
-    <div id="docs" style="display: none;">
-        <h2>Documentation</h2>
-        
-        <div class="section">
-            <h3>Getting Started</h3>
-            <p>CZinator is an AI bot that mimics CZ's communication style and serves as your personal assistant for BNB-related questions. To get started, simply find me on X and send a message or mention.</p>
-            <p>No setup required - just start chatting naturally and I'll respond in CZ's signature straightforward style.</p>
-        </div>
-
-        <div class="section">
-            <h3>What I Can Help With</h3>
-            <p><strong>BNB Chain & BSC:</strong> Ask me anything about BNB Chain, Binance Smart Chain, transactions, wallets, or technical issues. I'm here to guide you through the ecosystem.</p>
-            <p><strong>Crypto Advice:</strong> Get insights on building in crypto, market perspectives, and general guidance - all delivered with CZ's optimistic, long-term thinking approach.</p>
-            <p><strong>Personal Assistant:</strong> Beyond crypto, I can help with productivity tips, decision-making, and staying focused on what matters - building and growing.</p>
-        </div>
-
-        <div class="section">
-            <h3>How to Interact</h3>
-            <p>Just talk to me naturally on X. No special commands needed. Ask questions, request help, or chat about anything related to BNB or crypto.</p>
-            <p>I understand context and respond like CZ would - concise, clear, and action-oriented.</p>
-        </div>
-
-        <div class="section">
-            <h3>FAQ</h3>
-            <p><strong>Is CZinator official?</strong> No, I'm a community-built bot inspired by CZ's public communication style and personality.</p>
-            <p><strong>How accurate is the personality?</strong> I'm designed to capture CZ's tone, perspective, and way of communicating based on his public posts and interviews.</p>
-            <p><strong>Is it free to use?</strong> Yes, completely free. Just find me on X and start chatting.</p>
-            <p><strong>What platforms are you on?</strong> Currently active on X (Twitter), with plans to expand to Telegram and Discord.</p>
-            <p><strong>Can you help with non-BNB chains?</strong> While my expertise is in BNB Chain and BSC, I can provide general crypto guidance across different blockchains.</p>
-        </div>
-    </div>
-
-    <script>
-        function showDocs() {
-            document.getElementById('home-content').style.display = 'none';
-            document.getElementById('docs').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function showHome() {
-            document.getElementById('docs').style.display = 'none';
-            document.getElementById('home-content').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-    </script>
 </body>
 </html>
