@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Coin Experiment</title>
-   <link rel="icon" type="image/x-icon" href="coin.png">
+    <title>Bnb Node</title>
+   <link rel="icon" type="image/x-icon" href="bode.png">
     <style>
         * {
             margin: 0;
@@ -14,193 +14,247 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.6;
-        }
-
-        .section {
+            background: #fff;
+            color: #000;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
+            padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 800px;
-            width: 100%;
+            margin: 0 auto;
         }
 
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            letter-spacing: -2px;
-            margin-bottom: 2rem;
-            text-align: center;
+        header {
+            padding: 80px 0 60px 0;
+            border-bottom: 1px solid #000;
+            position: relative;
         }
 
-        h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            letter-spacing: -1px;
-        }
-
-        .intro-text {
-            font-size: 1.5rem;
-            text-align: center;
-            color: #333;
-            line-height: 1.8;
-        }
-
-        .content-text {
-            font-size: 1.125rem;
-            color: #333;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .scroll-indicator {
-            text-align: center;
-            margin-top: 3rem;
-            font-size: 0.9rem;
-            color: #666;
-        }
-
-        .proof-section {
-            background: #f5f5f5;
-        }
-
-        .method-section {
-            background: #ffffff;
-        }
-
-        .step {
-            margin-bottom: 1.5rem;
-        }
-
-        .step-number {
-            font-weight: 600;
-            color: #000;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .social-links {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            display: flex;
+            gap: 15px;
             align-items: center;
         }
 
-        .proof-image, .method-image {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .docs-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.9em;
+            transition: opacity 0.2s;
+            margin-right: 10px;
         }
 
-        .method-images {
-            margin-top: 3rem;
+        .docs-link:hover {
+            opacity: 0.6;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: #000;
+        }
+
+        .social-btn:hover svg {
+            fill: #fff;
+        }
+
+        .social-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #000;
+            transition: fill 0.2s;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 300;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            margin-top: 10px;
+            color: #666;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .rpc-endpoint {
+            background: #f5f5f5;
+            border: 1px solid #000;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .endpoint-url {
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            opacity: 0.8;
+        }
+
+        .steps {
+            margin-top: 30px;
+        }
+
+        .step {
+            padding: 15px 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        .step-number {
+            color: #999;
+            min-width: 25px;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
+                font-size: 2em;
             }
 
-            .intro-text {
-                font-size: 1.25rem;
+            .rpc-endpoint {
+                flex-direction: column;
+                align-items: stretch;
             }
 
-            .content-grid {
-                grid-template-columns: 1fr;
+            .copy-btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="section">
-        <div class="container">
-            <h1>The Coin Experiment</h1>
-            <p class="intro-text">
-                We emailed this coin to every solana employee.
+    <div class="container">
+        <header>
+            <div class="social-links">
+                <a href="https://github.com/thebodenode/The-Bode-Node/tree/main" class="social-btn" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://x.com/TheBodeNode" class="social-btn" target="_blank" aria-label="X (Twitter)">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+            </div>
+            <h1>Bnb Node</h1>
+            <p class="tagline">Solana RPC Built the Way Toly Envisioned</p>
+        </header>
+
+        <section>
+            <h2>Our Vision</h2>
+            <p>
+                We built a BNB node on Solana following Anatoly Yakovenko's original vision for high-performance, 
+                decentralized infrastructure. Our implementation focuses on speed, reliability, and seamless integration with the Solana ecosystem.
             </p>
-            <div class="scroll-indicator">
-                ↓ Scroll down to see proof ↓
-            </div>
-        </div>
-    </div>
+            <p>
+                By adhering to the core principles of Solana's architecture—proof of history, parallel transaction processing, 
+                and Gulf Stream forwarding—we've created a node that delivers the performance and decentralization that Toly envisioned from day one.
+            </p>
+        </section>
 
-    <!-- Proof Section -->
-    <div class="section proof-section">
-        <div class="container">
-            <h2>The Proof</h2>
-            <div class="content-grid">
-                <div>
-                    <p class="content-text">
-                        We successfully identified and contacted over 8,000 solana employees through their publicly available LinkedIn profiles. Each employee received a personalized email containing information about our cryptocurrency experiment.
-                    </p>
-                    <p class="content-text">
-                        Our outreach campaign achieved a 15% open rate and generated responses from employees across multiple departments including engineering, marketing, compliance, and executive leadership.
-                    </p>
-                    <p class="content-text">
-                        Email delivery confirmations, response analytics, and LinkedIn connection data validate the scope and success of this social experiment.
-                    </p>
-                </div>
-                <div>
-                    <img src="kink1.png" alt="Proof of email campaign" class="proof-image">
-                    <!-- Replace 'your-proof-image.jpg' with your actual image path -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Method Section -->
-    <div class="section method-section">
-        <div class="container">
-            <h2>How We Did It</h2>
+        <section>
+            <h2>Connect with Backpack Wallet</h2>
+            <p>
+                Our RPC node is fully compatible with Backpack Wallet, making it easy to connect and start using our infrastructure.
+            </p>
             
-            <div class="step">
-                <p class="content-text">
-                    <span class="step-number">Step 1: Data Collection</span><br>
-                    We used LinkedIn's search functionality to identify employees listing solana as their current employer. By systematically searching through job titles, departments, and locations, we compiled a comprehensive database.
-                </p>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">1.</span>
+                    <span>Open your Backpack Wallet</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2.</span>
+                    <span>Navigate to Settings → Network Settings</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">3.</span>
+                    <span>Add a custom RPC endpoint using our URL below</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">4.</span>
+                    <span>Save and start transacting</span>
+                </div>
             </div>
+        </section>
 
-            <div class="step">
-                <p class="content-text">
-                    <span class="step-number">Step 2: Email Discovery</span><br>
-                    Using publicly available information from LinkedIn profiles, GitHub repositories, conference presentations, and published articles, we reconstructed corporate email patterns and verified addresses through deliverability checks.
-                </p>
+        <section>
+            <h2>RPC Endpoint</h2>
+            
+            <div class="rpc-endpoint">
+                <span class="endpoint-url" id="rpcUrl">https://solana-rpc.bnbnode.xyz:8899</span>
+                <button class="copy-btn" onclick="copyEndpoint()">Copy</button>
             </div>
-
-            <div class="step">
-                <p class="content-text">
-                    <span class="step-number">Step 3: Personalized Outreach</span><br>
-                    Each email was customized based on the recipient's role, department, and public activity. We crafted messages that would resonate with their specific interests in cryptocurrency and blockchain technology.
-                </p>
-            </div>
-
-            <div class="step">
-                <p class="content-text">
-                    <span class="step-number">Step 4: Tracking & Analysis</span><br>
-                    We implemented tracking pixels and unique links to monitor email opens, click-through rates, and engagement patterns. This data provided insights into which departments were most receptive to our experiment.
-                </p>
-            </div>
-
-            <div class="method-images">
-                <img src="work.png" alt="Method visualization" class="method-image">
-                <!-- Replace 'your-method-image.jpg' with your actual image path -->
-            </div>
-        </div>
+        </section>
     </div>
+
+    <script>
+        function copyEndpoint() {
+            const url = document.getElementById('rpcUrl').textContent;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
-
-
-
