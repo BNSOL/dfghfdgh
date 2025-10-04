@@ -3,272 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Lend Project</title>
-    <link rel="icon" type="image/x-icon" href="lend.png">
+    <title>rape of bnb</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 40px;
+            font-family: 'Courier New', monospace;
             background: white;
             color: black;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            text-align: center;
-            padding: 100px 20px 60px;
-            border-bottom: 1px solid #e0e0e0;
+            font-size: 18px;
+            line-height: 1.8;
             position: relative;
         }
-
-        .x-button {
-            position: absolute;
+        
+        .x-link {
+            position: fixed;
             top: 40px;
             right: 40px;
-            background: black;
-            color: white;
-            padding: 10px 24px;
+            font-size: 20px;
+            color: #1DA1F2;
             text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 400;
-            transition: opacity 0.3s ease;
+            font-weight: bold;
         }
-
-        .x-button:hover {
-            opacity: 0.8;
+        
+        .x-link:hover {
+            text-decoration: underline;
         }
-
-        h1 {
-            font-size: 3em;
-            font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
+        
+        #text {
+            max-width: 800px;
         }
-
-        .tagline {
-            font-size: 1.1em;
-            color: #666;
-            font-weight: 300;
-        }
-
-        .main-content {
-            padding: 80px 20px;
-        }
-
-        h2 {
-            font-size: 2em;
-            font-weight: 300;
-            margin-bottom: 60px;
-            text-align: center;
-            letter-spacing: -0.5px;
-        }
-
-        .steps {
-            display: grid;
-            gap: 60px;
-            margin: 60px 0;
-        }
-
-        .step {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .step-number {
-            font-size: 1.2em;
-            color: #999;
-            min-width: 30px;
-            font-weight: 300;
-        }
-
-        .step-content h3 {
-            font-size: 1.3em;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-
-        .step-content p {
-            color: #666;
-            font-weight: 300;
-        }
-
-        .highlight {
-            padding: 60px 0;
-            border-top: 1px solid #e0e0e0;
-            border-bottom: 1px solid #e0e0e0;
-            margin: 80px 0;
-            text-align: center;
-        }
-
-        .highlight h3 {
-            font-size: 1.5em;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-
-        .highlight p {
-            color: #666;
-            font-weight: 300;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-button {
+        
+        .cursor {
             display: inline-block;
-            background: black;
-            color: white;
-            padding: 16px 50px;
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: 400;
-            margin-top: 40px;
-            transition: opacity 0.3s ease;
+            width: 2px;
+            height: 1.2em;
+            background-color: black;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+            vertical-align: text-bottom;
         }
-
-        .cta-button:hover {
-            opacity: 0.8;
-        }
-
-        .center {
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px;
-            color: #999;
-            font-weight: 300;
-            font-size: 0.9em;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .leaderboard-section {
-            padding: 80px 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .leaderboard-container {
-            margin-top: 40px;
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .leaderboard-header {
-            display: grid;
-            grid-template-columns: 80px 1fr 150px 150px;
-            gap: 20px;
-            padding: 20px;
-            background: #fafafa;
-            font-weight: 400;
-            font-size: 0.9em;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .leaderboard-body {
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: #999;
-            font-weight: 300;
-        }
-
-        @media (max-width: 768px) {
-            .leaderboard-header {
-                grid-template-columns: 60px 1fr 100px 100px;
-                gap: 10px;
-                font-size: 0.8em;
-            }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="https://x.com/thelendproject" target="_blank" class="x-button">𝕏</a>
-            <h1>The Lend Project</h1>
-            <p class="tagline">Lock your tokens. Earn fees. Automatically.</p>
-        </header>
-
-        <div class="main-content">
-            <h2>How It Works</h2>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <div class="step-content">
-                        <h3>Lock Your Supply</h3>
-                        <p>Lend your token supply using Streamflow's secure token locking protocol.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <div class="step-content">
-                        <h3>Earn Proportional Fees</h3>
-                        <p>The more supply you lock, the greater your share of the fee pool. Your earnings scale automatically with your contribution.</p>
-                    </div>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <div class="step-content">
-                        <h3>Automatic Airdrops</h3>
-                        <p>Fees are automatically airdropped to you. No claiming required, no hassle—just passive income.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="highlight">
-                <h3>The More You Lock, The More You Earn</h3>
-                <p>Our fee distribution model is simple and fair: users who lock more tokens automatically receive a larger share of the fees. It's proportional, transparent, and designed to reward those who contribute the most supply to the ecosystem.</p>
-            </div>
-
-            <div class="center">
-                <a href="#leaderboard" class="cta-button">Check The Leaderboard</a>
-            </div>
-        </div>
-
-        <div id="leaderboard" class="leaderboard-section">
-            <h2>Leaderboard</h2>
-            <div class="leaderboard-container">
-                <div class="leaderboard-header">
-                    <div class="rank">Rank</div>
-                    <div class="address">Address</div>
-                    <div class="locked">Tokens Locked</div>
-                    <div class="fees">Fees Earned</div>
-                </div>
-                <div class="leaderboard-body">
-                    <div class="empty-state">
-                        <p>No participants yet. Be the first to lock and earn!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2025 The Lend Project</p>
-        </footer>
-    </div>
+    <a href="https://x.com/rapeofbnb" target="_blank" class="x-link">x.com</a>
+    <div id="text"></div>
+    
+    <script>
+        const messages = [
+            "so alot of trenchers went to bnb to trade",
+            "",
+            "we dont like that so we decided to rape new pairs on bnb asking them to come back",
+            "",
+            "bnb charges literal pennies to deploy coins so we use the dev fees of pump to fund the dev wallet so it literally never ends",
+            "",
+            "enjoy :D"
+        ];
+        
+        const textElement = document.getElementById('text');
+        let messageIndex = 0;
+        let charIndex = 0;
+        let currentText = '';
+        
+        function type() {
+            if (messageIndex < messages.length) {
+                if (charIndex < messages[messageIndex].length) {
+                    currentText += messages[messageIndex][charIndex];
+                    textElement.innerHTML = currentText + '<span class="cursor"></span>';
+                    charIndex++;
+                    setTimeout(type, 50);
+                } else {
+                    currentText += '<br>';
+                    messageIndex++;
+                    charIndex = 0;
+                    setTimeout(type, 500);
+                }
+            } else {
+                textElement.innerHTML = currentText + '<span class="cursor"></span>';
+            }
+        }
+        
+        type();
+    </script>
 </body>
 </html>
-
