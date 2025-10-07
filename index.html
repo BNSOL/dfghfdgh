@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Coin</title>
+    <title>Build And Fork</title>
     <style>
         * {
             margin: 0;
@@ -14,305 +14,175 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #ffffff;
-            color: #000;
+            color: #1a1a1a;
             line-height: 1.8;
         }
 
-        .top-nav {
-            position: fixed;
-            top: 30px;
-            right: 40px;
-            z-index: 1000;
-        }
-
-        .top-nav a {
-            color: #000;
-            text-decoration: none;
-            font-size: 1.1em;
-            padding: 10px 20px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            margin-left: 10px;
-        }
-
-        .top-nav a:hover {
-            background: #e0e0e0;
-        }
-
-        .header {
-            text-align: center;
-            padding: 100px 20px 60px 20px;
-            background: #fff;
-            color: #000;
-        }
-
-        .header h1 {
-            font-size: 6em;
-            font-weight: 300;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            color: #000;
-        }
-
-        .header p {
-            font-size: 1.5em;
-            font-weight: 300;
-            color: #000;
-        }
-
-        .content {
-            max-width: 1000px;
+        .container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 0 24px;
         }
 
-        h2 {
-            font-size: 2em;
-            margin: 50px 0 25px 0;
+        header {
+            padding: 48px 0 24px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 48px;
             font-weight: 400;
         }
 
-        p {
-            margin-bottom: 20px;
-            font-size: 1.15em;
-            color: #333;
-        }
-
-        .intro-section {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 60px;
-        }
-
-        .intro-text {
-            flex: 1;
-        }
-
-        .intro-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .intro-image img {
-            max-width: 100%;
-            border-radius: 12px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .cz-guide-btn {
+        .cta {
             display: inline-block;
-            margin-top: 25px;
-            margin-right: 15px;
-            padding: 12px 30px;
-            background: #000;
+            padding: 14px 32px;
+            background: #1a1a1a;
             color: #fff;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: opacity 0.2s;
         }
 
-        .cz-guide-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
+        .cta:hover {
+            opacity: 0.8;
         }
 
-        .box {
-            background: #f9f9f9;
-            padding: 35px;
-            border-radius: 12px;
-            margin: 35px 0;
-            border-left: 3px solid #000;
+        .section {
+            padding: 64px 0;
+            border-top: 1px solid #e5e5e5;
         }
 
-        .highlight {
-            background: #f0f0f0;
-            padding: 3px 8px;
-            border-radius: 4px;
+        h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
             font-weight: 600;
-            color: #000;
         }
 
-        .simple-list {
-            margin: 25px 0;
-            padding-left: 35px;
-        }
-
-        .simple-list li {
-            margin: 12px 0;
-            font-size: 1.15em;
-            color: #333;
-        }
-
-        .note {
-            background: #f5f5f5;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 35px 0;
-            border-left: 3px solid #666;
-        }
-
-        .note strong {
-            color: #000;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 40px 0;
+        p {
+            font-size: 18px;
             color: #666;
-            font-style: italic;
+            margin-bottom: 32px;
         }
 
-        .timeline {
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 35px 0;
-            border-left: 3px solid #000;
+        .steps {
+            margin-top: 48px;
         }
 
-        .timeline-item {
-            margin: 20px 0;
-            padding-left: 25px;
+        .step {
+            margin-bottom: 48px;
         }
 
-        .timeline-item strong {
-            color: #000;
-            font-size: 1.1em;
+        .step h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .step p {
+            margin-bottom: 16px;
+        }
+
+        .code {
+            background: #f5f5f5;
+            padding: 16px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        footer {
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+            color: #999;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
-            .intro-section {
-                flex-direction: column;
+            h1 {
+                font-size: 36px;
             }
-            .header h1 {
-                font-size: 4em;
-            }
-            .top-nav {
-                position: relative;
-                top: 20px;
-                right: 0;
-                text-align: center;
+            h2 {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="top-nav">
-        <a href="https://www.bnbchain.org/en/blog/how-to-launch-a-memecoin-on-bnb-chain-a-step-by-step-guide" target="_blank">CZ's Guide</a>
-        <a href="https://x.com/example_tokenbnb" target="_blank">Our Twitter/X</a>
-    </div>
-
-    <div class="header">
-        <h1>EXAMPLE</h1>
-        <p>the memecoin built exactly as cz instructed</p>
-    </div>
-
-    <div class="content">
-        <div class="intro-section">
-            <div class="intro-text">
-                <h2>What is Example Coin?</h2>
-                <p>In January 2025, CZ posted a comprehensive step-by-step guide teaching people how to create a Trump-style memecoin on BNB Chain. We didn't just read the guide—we followed every single instruction to the letter.</p>
-                <p><strong>Example Coin is the result of executing CZ's blueprint perfectly.</strong></p>
-                <a href="https://www.bnbchain.org/en/blog/how-to-launch-a-memecoin-on-bnb-chain-a-step-by-step-guide" target="_blank" class="cz-guide-btn">Read CZ's Original Guide</a>
-                <a href="https://x.com/cz_binance/status/1882503407971520633" target="_blank" class="cz-guide-btn">View CZ's Post</a>
-            </div>
-            <div class="intro-image">
-                <img src="joka.png" alt="BNB Chain memecoin">
-            </div>
+    <header>
+        <div class="container">
+            <div class="logo">Build And Fork</div>
         </div>
+    </header>
 
-        <div class="timeline">
-            <h2>The Timeline</h2>
+    <section class="hero">
+        <div class="container">
+            <h1>Build. Fork. Collaborate.</h1>
+            <p class="subtitle">Binance asks everyone to build,<br>so we created a GitHub repository anyone can contribute to.</p>
+            <a href="https://github.com" class="cta">View on GitHub</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Why Fork?</h2>
+            <p>Forking lets you create your own copy of our project. Make changes, experiment, and submit improvements back to the community. It's open source collaboration at its best.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>How to Contribute</h2>
             
-            <div class="timeline-item">
-                <strong>January 20, 2025:</strong> Trump launches $TRUMP memecoin, sparking massive interest
+            <div class="steps">
+                <div class="step">
+                    <h3>1. Fork the repository</h3>
+                    <p>Click the Fork button on GitHub to create your own copy.</p>
+                </div>
+                
+                <div class="step">
+                    <h3>2. Make your changes</h3>
+                    <p>Clone locally and create a new branch for your feature.</p>
+                    <div class="code">git clone your-fork-url<br>git checkout -b feature-name</div>
+                </div>
+                
+                <div class="step">
+                    <h3>3. Submit a pull request</h3>
+                    <p>Push your changes and open a pull request for review.</p>
+                    <div class="code">git push origin feature-name</div>
+                </div>
             </div>
-            
-            <div class="timeline-item">
-                <strong>January 24, 2025:</strong> CZ tweets: "A step-by-step guide to launching a $Trump-like memecoin on BNB Chain. I might even know a consulting team if you are serious."
-            </div>
-            
-            <div class="timeline-item">
-                <strong>January 24, 2025:</strong> BNB Chain publishes comprehensive guide with actionable steps and strategies
-            </div>
-            
-            <div class="timeline-item">
-                <strong>Today:</strong> We launched Example Coin following every step of CZ's instructions
-            </div>
         </div>
+    </section>
 
-        <div class="box">
-            <h2>How We Built It</h2>
-            <p><strong>We followed CZ's guide exactly:</strong></p>
-            <ul class="simple-list">
-                <li><span class="highlight">Step 1:</span> Defined our core concept and vision</li>
-                <li><span class="highlight">Step 2:</span> Chose BNB Chain as recommended</li>
-                <li><span class="highlight">Step 3:</span> Used Four.meme bonding curve launchpad as instructed</li>
-                <li><span class="highlight">Step 4:</span> Designed fair tokenomics and distribution</li>
-                <li><span class="highlight">Step 5:</span> Built community engagement through social channels</li>
-                <li><span class="highlight">Step 6:</span> Implemented proper security measures</li>
-                <li><span class="highlight">Step 7:</span> Created liquidity on PancakeSwap V3</li>
-            </ul>
-            <p>Every single step from CZ's article was executed properly on BNB Chain.</p>
+    <footer>
+        <div class="container">
+            <p>Built by the community, inspired by builders.</p>
         </div>
-
-        <h2>Why BNB Chain?</h2>
-        
-        <p>CZ's guide highlighted several advantages of BNB Chain for memecoins:</p>
-        
-        <ul class="simple-list">
-            <li><strong>Ultra-low fees:</strong> Less than $0.03 per transaction on BNB Smart Chain</li>
-            <li><strong>EVM compatibility:</strong> Easy to use for developers</li>
-            <li><strong>Strong ecosystem:</strong> Over 1 million daily active users</li>
-            <li><strong>Proven platform:</strong> Home to successful memecoins already</li>
-            <li><strong>Comprehensive support:</strong> BNB Chain's Memecoin Solution provides end-to-end tools</li>
-        </ul>
-
-        <h2>The Tokenomics</h2>
-        
-        <div class="box">
-            <p><strong>Following best practices from the guide:</strong></p>
-            <ul class="simple-list">
-                <li>Fair launch via bonding curve on Four.meme</li>
-                <li>Automatic liquidity pool creation on PancakeSwap when curve hits 100%</li>
-                <li>Locked liquidity using PinkLock for security</li>
-                <li>Transparent, on-chain distribution</li>
-                <li>No hidden allocations or backdoors</li>
-            </ul>
-        </div>
-
-        <h2>Built on CZ's Ecosystem</h2>
-        
-        <p>CZ stated in his post that he could even provide "a consulting team if you are serious." While we didn't need the consulting team, we took his guidance seriously and executed it flawlessly.</p>
-        
-        <p>This isn't just another memecoin—it's proof that when you follow solid instructions from someone who understands the space, you can build something legitimate.</p>
-
-        <div class="note">
-            <strong>Transparency:</strong> All smart contracts are verified on BSCScan. All liquidity is locked. The launch followed every security recommendation from CZ's guide. This is how memecoins should be built—properly.
-        </div>
-
-        <h2>Community First</h2>
-        
-        <p>Just as the guide instructed, we've built:</p>
-        
-        <ul class="simple-list">
-            <li>Active social media presence (Twitter, Telegram, Discord)</li>
-            <li>Regular community updates and AMAs</li>
-            <li>Transparent communication about all developments</li>
-            <li>Engagement through giveaways and community events</li>
-        </ul>
-
-        <div class="footer">
-            <p>Example Coin - Proof that following CZ's blueprint works.</p>
-            <p>Built on BNB Chain. Launched properly. No shortcuts.</p>
-        </div>
-    </div>
+    </footer>
 </body>
 </html>
-
-
-
