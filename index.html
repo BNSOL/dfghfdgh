@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bub</title>
+    <title>Example Coin</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,6 @@
             line-height: 1.8;
         }
 
-        /* Top Navigation */
         .top-nav {
             position: fixed;
             top: 30px;
@@ -34,13 +33,13 @@
             background: #f0f0f0;
             border-radius: 8px;
             transition: all 0.3s ease;
+            margin-left: 10px;
         }
 
         .top-nav a:hover {
             background: #e0e0e0;
         }
 
-        /* Header */
         .header {
             text-align: center;
             padding: 100px 20px 60px 20px;
@@ -49,7 +48,7 @@
         }
 
         .header h1 {
-            font-size: 8em;
+            font-size: 6em;
             font-weight: 300;
             letter-spacing: 2px;
             margin-bottom: 10px;
@@ -62,7 +61,6 @@
             color: #000;
         }
 
-        /* Content */
         .content {
             max-width: 1000px;
             margin: 0 auto;
@@ -81,7 +79,6 @@
             color: #333;
         }
 
-        /* Intro Section */
         .intro-section {
             display: flex;
             align-items: center;
@@ -104,10 +101,10 @@
             border: 1px solid #e0e0e0;
         }
 
-        /* Button */
-        .cz-tweet-btn {
+        .cz-guide-btn {
             display: inline-block;
             margin-top: 25px;
+            margin-right: 15px;
             padding: 12px 30px;
             background: #000;
             color: #fff;
@@ -117,7 +114,7 @@
             transition: all 0.3s ease;
         }
 
-        .cz-tweet-btn:hover {
+        .cz-guide-btn:hover {
             background: #333;
             transform: translateY(-2px);
         }
@@ -128,39 +125,6 @@
             border-radius: 12px;
             margin: 35px 0;
             border-left: 3px solid #000;
-        }
-
-        .rule {
-            background: #f5f5f5;
-            padding: 25px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border-left: 3px solid #000;
-        }
-
-        .rule strong {
-            color: #000;
-            font-size: 1.2em;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .example {
-            background: #f9f9f9;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 8px;
-            border-left: 3px solid #666;
-        }
-
-        .step {
-            margin: 18px 0;
-            padding-left: 25px;
-            color: #333;
-        }
-
-        .step strong {
-            color: #000;
         }
 
         .highlight {
@@ -202,6 +166,24 @@
             font-style: italic;
         }
 
+        .timeline {
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 35px 0;
+            border-left: 3px solid #000;
+        }
+
+        .timeline-item {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        .timeline-item strong {
+            color: #000;
+            font-size: 1.1em;
+        }
+
         @media (max-width: 768px) {
             .intro-section {
                 flex-direction: column;
@@ -209,53 +191,125 @@
             .header h1 {
                 font-size: 4em;
             }
+            .top-nav {
+                position: relative;
+                top: 20px;
+                right: 0;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Top Navigation -->
     <div class="top-nav">
-        <a href="https://x.com/thebubcoin" target="_blank">x.com</a>
+        <a href="https://www.bnbchain.org/en/blog/how-to-launch-a-memecoin-on-bnb-chain-a-step-by-step-guide" target="_blank">CZ's Guide</a>
+        <a href="https://x.com/cz_binance" target="_blank">CZ's Twitter</a>
     </div>
 
-    <!-- Header -->
     <div class="header">
-        <h1>bub</h1>
-        <p>the memecoin from binance's web3 wallet</p>
+        <h1>EXAMPLE</h1>
+        <p>the memecoin built exactly as cz instructed</p>
     </div>
 
-    <!-- Main Content -->
     <div class="content">
         <div class="intro-section">
             <div class="intro-text">
-                <h2>What is bub?</h2>
-                <p>Binance posted a video on LinkedIn showing their new Web3 wallet, and in the video they were holding a memecoin named "bub". However, bub doesn't exist on the BNB chain, so we're remaking it and bringing it to life.</p>
-                <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQFJK4D204F8mAAAAZm7r1TwJIndUP-87CYDsCRIAmzmwV4njBUkNa5CQ2fF5jbHDE5SoGDfDIfj5K1UDPzKRATjQTDzce9vEIU8NK9rpjR8Hc52hPNG6nmV5wnBaPbVywVH4bw=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fcpzhao%2Frecent-activity%2Fall%2F" target="_blank" class="cz-tweet-btn">View Binance's Post</a>
+                <h2>What is Example Coin?</h2>
+                <p>In January 2025, CZ posted a comprehensive step-by-step guide teaching people how to create a Trump-style memecoin on BNB Chain. We didn't just read the guide—we followed every single instruction to the letter.</p>
+                <p><strong>Example Coin is the result of executing CZ's blueprint perfectly.</strong></p>
+                <a href="https://www.bnbchain.org/en/blog/how-to-launch-a-memecoin-on-bnb-chain-a-step-by-step-guide" target="_blank" class="cz-guide-btn">Read CZ's Original Guide</a>
+                <a href="https://x.com/cz_binance/status/1882766906797506666" target="_blank" class="cz-guide-btn">View CZ's Post</a>
             </div>
             <div class="intro-image">
-                <img src="linkedinlol.png" alt="Token economics concept">
+                <img src="lamo.png" alt="BNB Chain memecoin">
+            </div>
+        </div>
+
+        <div class="timeline">
+            <h2>The Timeline</h2>
+            
+            <div class="timeline-item">
+                <strong>January 20, 2025:</strong> Trump launches $TRUMP memecoin, sparking massive interest
+            </div>
+            
+            <div class="timeline-item">
+                <strong>January 24, 2025:</strong> CZ tweets: "A step-by-step guide to launching a $Trump-like memecoin on BNB Chain. I might even know a consulting team if you are serious."
+            </div>
+            
+            <div class="timeline-item">
+                <strong>January 24, 2025:</strong> BNB Chain publishes comprehensive guide with actionable steps and strategies
+            </div>
+            
+            <div class="timeline-item">
+                <strong>Today:</strong> We launched Example Coin following every step of CZ's instructions
             </div>
         </div>
 
         <div class="box">
-            <h2>The Story Behind bub</h2>
-            <p>When Binance showcased their new Web3 wallet on LinkedIn, eagle-eyed viewers noticed they were holding a token called "bub" in the demonstration. The community immediately searched for this token on the BNB chain, but it didn't exist.</p>
-            <p>This sparked the idea: if Binance featured it in their official wallet demo, why not bring bub to life on the BNB chain? That's exactly what we're doing.</p>
+            <h2>How We Built It</h2>
+            <p><strong>We followed CZ's guide exactly:</strong></p>
+            <ul class="simple-list">
+                <li><span class="highlight">Step 1:</span> Defined our core concept and vision</li>
+                <li><span class="highlight">Step 2:</span> Chose BNB Chain as recommended</li>
+                <li><span class="highlight">Step 3:</span> Used Four.meme bonding curve launchpad as instructed</li>
+                <li><span class="highlight">Step 4:</span> Designed fair tokenomics and distribution</li>
+                <li><span class="highlight">Step 5:</span> Built community engagement through social channels</li>
+                <li><span class="highlight">Step 6:</span> Implemented proper security measures</li>
+                <li><span class="highlight">Step 7:</span> Created liquidity on PancakeSwap V3</li>
+            </ul>
+            <p>Every single step from CZ's article was executed properly on BNB Chain.</p>
         </div>
 
-        <h2>Why bub?</h2>
+        <h2>Why BNB Chain?</h2>
+        
+        <p>CZ's guide highlighted several advantages of BNB Chain for memecoins:</p>
         
         <ul class="simple-list">
-            <li>Featured in Binance's official Web3 wallet video</li>
-            <li>Community-driven creation inspired by Binance's demo</li>
-            <li>A true memecoin born from an authentic moment</li>
-            <li>Bringing what was shown in the video to reality on BNB chain</li>
+            <li><strong>Ultra-low fees:</strong> Less than $0.03 per transaction on BNB Smart Chain</li>
+            <li><strong>EVM compatibility:</strong> Easy to use for developers</li>
+            <li><strong>Strong ecosystem:</strong> Over 1 million daily active users</li>
+            <li><strong>Proven platform:</strong> Home to successful memecoins already</li>
+            <li><strong>Comprehensive support:</strong> BNB Chain's Memecoin Solution provides end-to-end tools</li>
+        </ul>
+
+        <h2>The Tokenomics</h2>
+        
+        <div class="box">
+            <p><strong>Following best practices from the guide:</strong></p>
+            <ul class="simple-list">
+                <li>Fair launch via bonding curve on Four.meme</li>
+                <li>Automatic liquidity pool creation on PancakeSwap when curve hits 100%</li>
+                <li>Locked liquidity using PinkLock for security</li>
+                <li>Transparent, on-chain distribution</li>
+                <li>No hidden allocations or backdoors</li>
+            </ul>
+        </div>
+
+        <h2>Built on CZ's Ecosystem</h2>
+        
+        <p>CZ stated in his post that he could even provide "a consulting team if you are serious." While we didn't need the consulting team, we took his guidance seriously and executed it flawlessly.</p>
+        
+        <p>This isn't just another memecoin—it's proof that when you follow solid instructions from someone who understands the space, you can build something legitimate.</p>
+
+        <div class="note">
+            <strong>Transparency:</strong> All smart contracts are verified on BSCScan. All liquidity is locked. The launch followed every security recommendation from CZ's guide. This is how memecoins should be built—properly.
+        </div>
+
+        <h2>Community First</h2>
+        
+        <p>Just as the guide instructed, we've built:</p>
+        
+        <ul class="simple-list">
+            <li>Active social media presence (Twitter, Telegram, Discord)</li>
+            <li>Regular community updates and AMAs</li>
+            <li>Transparent communication about all developments</li>
+            <li>Engagement through giveaways and community events</li>
         </ul>
 
         <div class="footer">
-            <p>Bringing bub from Binance's Web3 wallet demo to the BNB chain.</p>
+            <p>Example Coin - Proof that following CZ's blueprint works.</p>
+            <p>Built on BNB Chain. Launched properly. No shortcuts.</p>
         </div>
     </div>
 </body>
 </html>
-
