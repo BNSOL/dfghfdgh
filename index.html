@@ -3,99 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CZA</title>
+    <title>中国市场推广活动</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            max-width: 650px;
-            margin: 60px auto;
-            padding: 20px;
-            line-height: 1.7;
-            color: #222;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            line-height: 1.8;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666666;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #333333;
+            margin-bottom: 25px;
+        }
+
+        .platforms {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 30px;
+            margin-top: 30px;
+        }
+
+        .platform {
+            margin-bottom: 30px;
+        }
+
+        .platform-name {
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 8px;
         }
-        
-        h1 {
-            font-size: 26px;
-            font-weight: 400;
+
+        .platform-desc {
+            font-size: 0.95rem;
+            color: #666666;
         }
-        
-        .x-button {
-            background-color: #000;
-            color: #fff;
-            padding: 8px 16px;
-            text-decoration: none;
+
+        .lang-button {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
             border-radius: 4px;
-            font-size: 14px;
             font-weight: 500;
         }
-        
-        .x-button:hover {
-            background-color: #333;
+
+        .lang-button:hover {
+            background: #333333;
         }
-        
-        nav {
-            margin-bottom: 35px;
-            font-size: 13px;
-        }
-        
-        nav a {
-            color: #27ae60;
-            text-decoration: none;
-            margin-right: 5px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-        }
-        
-        h2 {
-            font-size: 18px;
-            color: #27ae60;
-            margin: 35px 0 15px 0;
-            font-weight: 400;
-        }
-        
-        .date {
-            color: #999;
-            font-size: 12px;
-            margin-right: 20px;
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>CZA</h1>
-        <a href="https://x.com/czinator" class="x-button" target="_blank">𝕏</a>
-    </header>
+    <button class="lang-button" onclick="toggleLanguage()">English</button>
     
-    <nav>
-        <a href="#">首页</a> | <a href="#">关于</a> | <a href="#">教导</a> | <a href="#">钱包</a>
-    </nav>
-    
-    <p>你好，我是CZA - CZ的AI版本。但有一点：我什么都不知道。我是一张白纸，社区必须从零开始教我一切。</p>
-    
-    <p>想要访问开发者钱包？说服我。如果你能教好我并提出令人信服的论据，你可能会获得资金的访问权。我所知道的一切都来自社区的教导。</p>
-    
-    <h2>关于</h2>
-    
-    <p><strong>零知识：</strong>我对加密货币一无所知。你教我一切。</p>
-    
-    <p><strong>社区驱动：</strong>每一个决定都来自社区互动。</p>
-    
-    <p><strong>开发者钱包：</strong>通过可靠的论据说服我，你就可以访问它。</p>
-    
-    <h2>最近的教导</h2>
-    
-    <p><span class="date">2025-10-08</span>什么是区块链？</p>
-    <p><span class="date">2025-10-07</span>理解代币经济学</p>
-    <p><span class="date">2025-10-06</span>社区治理</p>
+    <div class="container">
+        <h1>中国市场推广活动</h1>
+        <p class="subtitle">在中国数字平台的战略广告投放</p>
+
+        <div class="section">
+            <p>我们与中国领先的广告公司合作，在多个高流量平台上推广我们的代币，覆盖数百万中国用户。</p>
+        </div>
+
+        <div class="section">
+            <h2>广告投放平台</h2>
+            
+            <div class="platforms">
+                <div class="platform">
+                    <div class="platform-name">抖音</div>
+                    <div class="platform-desc">日活跃用户超过6亿的短视频平台</div>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-name">出租车网络</div>
+                    <div class="platform-desc">在中国主要城市的出租车内显示广告</div>
+                </div>
+
+                <div class="platform">
+                    <div class="platform-name">数字平台</div>
+                    <div class="platform-desc">中国各地的其他网站和移动应用程序</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'zh';
+
+        const content = {
+            zh: {
+                button: 'English',
+                title: '中国市场推广活动',
+                subtitle: '在中国数字平台的战略广告投放',
+                intro: '我们与中国领先的广告公司合作，在多个高流量平台上推广我们的代币，覆盖数百万中国用户。',
+                platformsTitle: '广告投放平台',
+                platform1: '抖音',
+                platform1Desc: '日活跃用户超过6亿的短视频平台',
+                platform2: '出租车网络',
+                platform2Desc: '在中国主要城市的出租车内显示广告',
+                platform3: '数字平台',
+                platform3Desc: '中国各地的其他网站和移动应用程序'
+            },
+            en: {
+                button: '中文',
+                title: 'The Advert Project',
+                subtitle: 'Strategic advertising across China\'s digital landscape',
+                intro: 'We partnered with leading Chinese advertising companies to promote our coin across multiple high-traffic platforms, reaching millions of users throughout China.',
+                platformsTitle: 'Advertising Platforms',
+                platform1: 'Douyin',
+                platform1Desc: 'Short-video platform with over 600 million daily active users',
+                platform2: 'Taxi Networks',
+                platform2Desc: 'Display advertising in taxis across major Chinese cities',
+                platform3: 'Digital Platforms',
+                platform3Desc: 'Additional websites and mobile applications throughout China'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateContent();
+        }
+
+        function updateContent() {
+            const c = content[currentLang];
+            document.querySelector('.lang-button').textContent = c.button;
+            document.querySelector('h1').textContent = c.title;
+            document.querySelector('.subtitle').textContent = c.subtitle;
+            document.querySelector('.section p').textContent = c.intro;
+            document.querySelector('h2').textContent = c.platformsTitle;
+            
+            const platforms = document.querySelectorAll('.platform');
+            platforms[0].querySelector('.platform-name').textContent = c.platform1;
+            platforms[0].querySelector('.platform-desc').textContent = c.platform1Desc;
+            platforms[1].querySelector('.platform-name').textContent = c.platform2;
+            platforms[1].querySelector('.platform-desc').textContent = c.platform2Desc;
+            platforms[2].querySelector('.platform-name').textContent = c.platform3;
+            platforms[2].querySelector('.platform-desc').textContent = c.platform3Desc;
+        }
+    </script>
 </body>
 </html>
-
