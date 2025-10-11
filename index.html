@@ -1,195 +1,98 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>中国市场推广活动</title>
+    <title>The 1000 Reasons Project</title>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
-            background: #ffffff;
-            color: #000000;
-            line-height: 1.8;
-            padding: 60px 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+            background-color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #666666;
+            font-size: 2.5em;
             margin-bottom: 60px;
-            font-weight: 400;
+            color: #000;
         }
 
-        .section {
-            margin-bottom: 50px;
+        .x-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #000;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
 
-        h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            font-weight: 600;
+        .x-button:hover {
+            background-color: #333;
         }
 
-        p {
-            font-size: 1rem;
-            color: #333333;
-            margin-bottom: 25px;
+        .typed-text {
+            font-size: 1.3em;
+            max-width: 700px;
+            text-align: center;
+            line-height: 2;
+            color: #000;
+            padding: 0 20px;
         }
 
-        .platforms {
-            border-top: 1px solid #e0e0e0;
-            padding-top: 30px;
-            margin-top: 30px;
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: #000;
+            margin-left: 2px;
+            animation: blink 0.7s infinite;
+            vertical-align: text-bottom;
         }
 
-        .platform {
-            margin-bottom: 30px;
-        }
-
-        .platform-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .platform-desc {
-            font-size: 0.95rem;
-            color: #666666;
-        }
-
-        .lang-button {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: #000000;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .lang-button:hover {
-            background: #333333;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 40px 20px;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <button class="lang-button" onclick="toggleLanguage()">English</button>
-    
-    <div class="container">
-        <h1>中国市场推广活动</h1>
-        <p class="subtitle">在中国数字平台的战略广告投放</p>
-
-        <div class="section">
-            <p>我们与中国领先的广告公司合作，在多个高流量平台上推广我们的代币，覆盖数百万中国用户。</p>
-        </div>
-
-        <div class="section">
-            <h2>广告投放平台</h2>
-            
-            <div class="platforms">
-                <div class="platform">
-                    <div class="platform-name">抖音</div>
-                    <div class="platform-desc">日活跃用户超过6亿的短视频平台</div>
-                </div>
-
-                <div class="platform">
-                    <div class="platform-name">出租车网络</div>
-                    <div class="platform-desc">在中国主要城市的出租车内显示广告</div>
-                </div>
-
-                <div class="platform">
-                    <div class="platform-name">数字平台</div>
-                    <div class="platform-desc">中国各地的其他网站和移动应用程序</div>
-                </div>
-            </div>
-        </div>
+    <a href="https://x.com/1000ReasonsProj" class="x-button" target="_blank">Visit our 𝕏</a>
+    <h1>The 1000 Reasons Project</h1>
+    <div class="typed-text">
+        <span id="text"></span><span class="cursor"></span>
     </div>
 
     <script>
-        let currentLang = 'zh';
-
-        const content = {
-            zh: {
-                button: 'English',
-                title: '中国市场推广活动',
-                subtitle: '在中国数字平台的战略广告投放',
-                intro: '我们与中国领先的广告公司合作，在多个高流量平台上推广我们的代币，覆盖数百万中国用户。',
-                platformsTitle: '广告投放平台',
-                platform1: '抖音',
-                platform1Desc: '日活跃用户超过6亿的短视频平台',
-                platform2: '出租车网络',
-                platform2Desc: '在中国主要城市的出租车内显示广告',
-                platform3: '数字平台',
-                platform3Desc: '中国各地的其他网站和移动应用程序'
-            },
-            en: {
-                button: '中文',
-                title: 'The Advert Project',
-                subtitle: 'Strategic advertising across China\'s digital landscape',
-                intro: 'We partnered with leading Chinese advertising companies to promote our coin across multiple high-traffic platforms, reaching millions of users throughout China.',
-                platformsTitle: 'Advertising Platforms',
-                platform1: 'Douyin',
-                platform1Desc: 'Short-video platform with over 600 million daily active users',
-                platform2: 'Taxi Networks',
-                platform2Desc: 'Display advertising in taxis across major Chinese cities',
-                platform3: 'Digital Platforms',
-                platform3Desc: 'Additional websites and mobile applications throughout China'
+        const fullText = "The market is hurt right now.\n\nVolume has been destroyed by Trump's tariffs.\n\nBut what if we gave you a coin with 1000 reasons to buy it?\n\nAnd not only gave you those reasons...\n\nBut tokenized each reason after every 10 seconds.";
+        
+        let i = 0;
+        const textElement = document.getElementById('text');
+        
+        function typeWriter() {
+            if (i < fullText.length) {
+                const char = fullText.charAt(i);
+                if (char === '\n') {
+                    textElement.innerHTML += '<br>';
+                } else {
+                    textElement.innerHTML += char;
+                }
+                i++;
+                setTimeout(typeWriter, 50);
             }
-        };
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'zh' ? 'en' : 'zh';
-            updateContent();
         }
-
-        function updateContent() {
-            const c = content[currentLang];
-            document.querySelector('.lang-button').textContent = c.button;
-            document.querySelector('h1').textContent = c.title;
-            document.querySelector('.subtitle').textContent = c.subtitle;
-            document.querySelector('.section p').textContent = c.intro;
-            document.querySelector('h2').textContent = c.platformsTitle;
-            
-            const platforms = document.querySelectorAll('.platform');
-            platforms[0].querySelector('.platform-name').textContent = c.platform1;
-            platforms[0].querySelector('.platform-desc').textContent = c.platform1Desc;
-            platforms[1].querySelector('.platform-name').textContent = c.platform2;
-            platforms[1].querySelector('.platform-desc').textContent = c.platform2Desc;
-            platforms[2].querySelector('.platform-name').textContent = c.platform3;
-            platforms[2].querySelector('.platform-desc').textContent = c.platform3Desc;
-        }
+        
+        setTimeout(typeWriter, 500);
     </script>
 </body>
 </html>
